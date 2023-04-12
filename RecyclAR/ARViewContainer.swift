@@ -30,9 +30,18 @@ struct ARViewContainer: UIViewRepresentable {
 
         let arView = ARView(frame: .zero)
         let cokeAnchor = try! CokeCanExplode.loadCoke()
+        let speech = cokeAnchor.findEntity(named: "Speech")
+        let package = cokeAnchor.findEntity(named: "Package")
+        speech?.isEnabled = false
+        package?.isEnabled = false
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
+        
+        // Add object detection for `CokeCanExplode`
+        arView.session.delegate = context.coordinator
+        
+        
         viewController.view.addSubview(arView)
         
         arView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +69,35 @@ struct ARViewContainer: UIViewRepresentable {
             
         return viewController
     }
+    
+    class Coordinator: NSObject, ARSessionDelegate {
+
+            var parent: ARViewContainer
+
+            init(_ parent: ARViewContainer) {
+                self.parent = parent
+            }
+
+            // MARK: - ARSessionDelegate
+            func session(_ session: ARSession, didFailWithError error: Error) {}
+
+            func sessionWasInterrupted(_ session: ARSession) {}
+
+            func sessionInterruptionEnded(_ session: ARSession) {}
+
+            func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+                for anchor in anchors {
+                    if let objectAnchor = anchor as? ARObjectAnchor {
+                        // Detected a 3D object
+                        print("Object detected: \(objectAnchor.name ?? "")")
+                    }
+                }
+            }
+        }
+
+        func makeCoordinator() -> Coordinator {
+            return Coordinator(self)
+        }
 }
 
 
@@ -99,10 +137,12 @@ extension ARView: ARCoachingOverlayViewDelegate {
     
     public func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
         print("[DEBUG]: coachingOverlay actived")
+        //coachingOverlay.activatesAutomatically = true
         self.superview?.subviews.last?.isHidden = true
     }
     
     public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
+        //coachingOverlay.activatesAutomatically = false
         print("[DEBUG]: coachingOverlay dismissed")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             UIView.animate(withDuration: 0.5) {
