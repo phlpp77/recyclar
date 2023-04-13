@@ -83,6 +83,7 @@ struct TapView: View {
         case tapToPosition
         case identifying
         case scanned
+        case objectFound
         
         var title: String {
             switch self {
@@ -92,6 +93,8 @@ struct TapView: View {
                 return "Identifying"
             case .scanned:
                 return "Scanned"
+            case .objectFound:
+                return "Object Found"
             }
         }
         
@@ -102,6 +105,8 @@ struct TapView: View {
             case .identifying:
                 return .green
             case .scanned:
+                return .blue
+            case .objectFound:
                 return .blue
             }
         }
@@ -114,6 +119,8 @@ struct TapView: View {
                 return Color(#colorLiteral(red: 0.196, green: 0.843, blue: 0.294, alpha: 1.0))
             case .scanned:
                 return Color(#colorLiteral(red: 0, green: 0.478, blue: 1, alpha: 1))
+            case .objectFound:
+                return Color(#colorLiteral(red: 0, green: 0.478, blue: 1, alpha: 1))
             }
         }
         
@@ -125,8 +132,11 @@ struct TapView: View {
                 return Color(#colorLiteral(red: 0.196, green: 0.843, blue: 0.294, alpha: 0.5)).opacity(0.7)
             case .scanned:
                 return Color(#colorLiteral(red: 0.262, green: 0.723, blue: 0.921, alpha: 0.5)).opacity(0.7)
+            case .objectFound:
+                return Color.clear
             }
         }
+        
     }
     
     @Binding var state: TapViewState

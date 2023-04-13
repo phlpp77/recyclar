@@ -21,6 +21,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     //let tapView = TapView(state: $state)
     let cokeAnchor = try! CokeCanExplode.loadCoke()
+    let mentosAnchor = try! CokeCanExplode.loadMentos()
     
     
 
@@ -40,15 +41,23 @@ struct ARViewContainer: UIViewRepresentable {
         let speech = cokeAnchor.findEntity(named: "Speech")
         let package = cokeAnchor.findEntity(named: "Package")
         
+        let p_mentos = mentosAnchor.findEntity(named: "Package")
+        let g_mentos = mentosAnchor.findEntity(named: "Graph")
+        let s_mentos = mentosAnchor.findEntity(named: "SUS")
+        
         speech?.isEnabled = false
         package?.isEnabled = false
+        p_mentos?.isEnabled = false
+        g_mentos?.isEnabled = false
+        s_mentos?.isEnabled = false
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
+        arView.scene.anchors.append(mentosAnchor)
         
-//        let configuration = ARObjectScanningConfiguration()
-//        arView.session.run(configuration)
+        
         // Add object detection for `CokeCanExplode`
+        
         arView.session.delegate = context.coordinator
         
         
@@ -83,6 +92,8 @@ struct ARViewContainer: UIViewRepresentable {
             var parent: ARViewContainer
             var speech: Entity?
             var package: Entity?
+            var p_mentos: Entity?
+            var objectDetected = false
 
             init(_ parent: ARViewContainer) {
                 self.parent = parent
@@ -97,36 +108,41 @@ struct ARViewContainer: UIViewRepresentable {
 
             func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
                 for anchor in anchors {
-                    // Change the tap view state to `.scanned` if it is currently in the `.identifying` state.
                     
+                    // Change the tap view state to `.scanned` if it is currently in the `.identifying` state.
                     if let objectAnchor = anchor as? ARObjectAnchor {
                         print("Detected object with name: \(objectAnchor.referenceObject.name ?? "")")
-                        // Do something with the detected object
-//                        speech = parent.cokeAnchor.findEntity(named: "Speech")
-//                        package = parent.cokeAnchor.findEntity(named: "Package")
-//                        speech?.isEnabled = true
                         
                         
-//                        print("Find Object")
-//
-//                        parent.state = .scanned
-//                        print(parent.state)
+                        if(objectAnchor.referenceObject.name == "mentos.arobject"){
+                            print("OBJ1")
+                        }
+                        print(parent.state)
                         
-//                        DispatchQueue.main.async {
-//                            parent.state = .scanned
-//                        }
-                        
-                        if parent.state == .identifying {
-                            print("Identifying?")
-                            speech = parent.cokeAnchor.findEntity(named: "Speech")
-                            package = parent.cokeAnchor.findEntity(named: "Package")
-                            speech?.isEnabled = true
-                            package?.isEnabled = true
+                        package = self.parent.cokeAnchor.findEntity(named: "Package")
+                        speech = self.parent.cokeAnchor.findEntity(named: "Speech")
+                        p_mentos = self.parent.mentosAnchor.findEntity(named: "Package")
+
+                        if parent.state == .identifying || parent.state == .tapToPosition {
+                            //print("Identifying?")
                             
-                            DispatchQueue.main.async {
+                            package?.isEnabled = true
+                            p_mentos?.isEnabled = true
+                            //speech?.isEnabled = true
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 self.parent.state = .scanned
                             }
+                            
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                self.parent.state = .objectFound
+                                
+                            }
+                            
                         }
+                        
+                        
                     }
                 
                 }
