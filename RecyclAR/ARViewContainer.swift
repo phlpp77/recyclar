@@ -180,7 +180,7 @@ extension ARView: ARCoachingOverlayViewDelegate {
     }
     
     public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        coachingOverlayView.activatesAutomatically = false
+        //coachingOverlayView.activatesAutomatically = false
         print("[DEBUG]: coachingOverlay dismissed")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             UIView.animate(withDuration: 0.5) {
