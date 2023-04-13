@@ -20,13 +20,15 @@ struct TopBarView: View {
                         .foregroundColor(.white)
                         .bold()
                         .frame(width: 52,height: 52)
-                        .background(Color.gray)
+                        .background(Color("LightGreen").opacity(0.7))
+                        
                         .cornerRadius(52)
+                        .font(.title2)
                     HStack {
                         Image(systemName: "rosette")
                         Text("Level 1")
                     }
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                     .font(.footnote)
                 }
             }
@@ -43,6 +45,7 @@ struct TopBarView: View {
                     Image(systemName: "qrcode")
                         .frame(width: 52,height: 52)
                 }
+    
                 
                 // App settings
                 NavigationLink {
@@ -53,9 +56,10 @@ struct TopBarView: View {
                         .frame(width: 52,height: 52)
                 }
                 
-            }.foregroundColor(.white)
+            }.foregroundColor(.black)
                 .bold()
-                .background(Color.gray)
+                .font(.title2)
+                .background(Color("LightGreen").opacity(0.7))
                 .cornerRadius(52)
             
         }

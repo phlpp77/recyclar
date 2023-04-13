@@ -16,7 +16,7 @@ struct DiscoverView: View {
                 .padding(.horizontal, 28)
                 .padding(.top, 9)
                 .padding(.bottom, 30)
-            Divider()
+                .background(Color("BackgroundGreen").cornerRadius(20).edgesIgnoringSafeArea(.top))
             
             // Scanned items section
             NavigationLink {
