@@ -28,5 +28,30 @@
     "libraryIdentifier" : "353768da12ee951c83e30dd90d4c813a",
     "format" : "arObject",
     "displayName" : "CokeZero.arobject"
+  },
+  {
+    "libraryIdentifier" : "d87f816190194878d0e1310ff8db4c39",
+    "format" : "arObject",
+    "displayName" : "coke_library.arobject"
+  },
+  {
+    "libraryIdentifier" : "c56a5f23bcd3352ab71e1ddd2ccdc36a",
+    "format" : "arObject",
+    "displayName" : "mentos.arobject"
+  },
+  {
+    "libraryIdentifier" : "5196c28154f29561f187c831b47acaa1",
+    "format" : "arObject",
+    "displayName" : "coke0413.arobject"
+  },
+  {
+    "libraryIdentifier" : "9546bbfde272ad690d57c9257ca46ab8",
+    "format" : "arObject",
+    "displayName" : "mentos0413.arobject"
+  },
+  {
+    "libraryIdentifier" : "b822e4913e5995b59c552ccf2846dcf9",
+    "format" : "arObject",
+    "displayName" : "coke0413_2.arobject"
   }
 ]

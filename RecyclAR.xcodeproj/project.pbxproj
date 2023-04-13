@@ -23,6 +23,7 @@
 		17F8D8A729AEEB8F009C0F08 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8D8A629AEEB8F009C0F08 /* ARViewContainer.swift */; };
 		17F8D8AB29AEEB90009C0F08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F8D8AA29AEEB90009C0F08 /* Assets.xcassets */; };
 		17F8D8AE29AEEB90009C0F08 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F8D8AD29AEEB90009C0F08 /* Preview Assets.xcassets */; };
+		F1CC4E9229E61091002E9CB3 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC4E9129E61091002E9CB3 /* TapView.swift */; };
 		F1D0210E29B54185003BFEAF /* CokeCanExplode.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = F1D0210D29B54185003BFEAF /* CokeCanExplode.rcproject */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		17F8D8A629AEEB8F009C0F08 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		17F8D8AA29AEEB90009C0F08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F8D8AD29AEEB90009C0F08 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F1CC4E9129E61091002E9CB3 /* TapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
 		F1D0210D29B54185003BFEAF /* CokeCanExplode.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; name = CokeCanExplode.rcproject; path = ../../recyclar/RecyclAR/CokeCanExplode.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				179825ED29BC019200C98EF6 /* ScoresView.swift */,
 				175DF71129E4BA720090F603 /* ProductModel.swift */,
 				17F8D8A629AEEB8F009C0F08 /* ARViewContainer.swift */,
+				F1CC4E9129E61091002E9CB3 /* TapView.swift */,
 				F1D0210D29B54185003BFEAF /* CokeCanExplode.rcproject */,
 				17F8D8AA29AEEB90009C0F08 /* Assets.xcassets */,
 				17F8D8AC29AEEB90009C0F08 /* Preview Content */,
@@ -199,6 +202,7 @@
 				179825EA29BC016800C98EF6 /* DiscoverView.swift in Sources */,
 				17A564CF29DFA40000758215 /* ViewModifiers.swift in Sources */,
 				F1D0210E29B54185003BFEAF /* CokeCanExplode.rcproject in Sources */,
+				F1CC4E9229E61091002E9CB3 /* TapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RecyclAR/Preview Content\"";
-				DEVELOPMENT_TEAM = LTC2Q574RM;
+				DEVELOPMENT_TEAM = 3UYN69PD8T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -358,7 +362,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RecyclAR/Preview Content\"";
-				DEVELOPMENT_TEAM = LTC2Q574RM;
+				DEVELOPMENT_TEAM = 3UYN69PD8T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
