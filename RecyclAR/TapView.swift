@@ -129,7 +129,7 @@ struct TapView: View {
         }
     }
     
-    @State var state: TapViewState = .tapToPosition
+    @Binding var state: TapViewState
     
     var body: some View {
         VStack {
@@ -201,8 +201,8 @@ struct TapView: View {
     }
 }
 
-struct TapView_Previews: PreviewProvider {
-    static var previews: some View {
-        TapView()
-    }
-}
+//struct TapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TapView()
+//    }
+//}

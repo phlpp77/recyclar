@@ -14,9 +14,15 @@ import RealityKit
 struct ARViewContainer: UIViewRepresentable {
     
     @State var isCoachOverlayActive = true
-    @State var isIdentifying = false
+    @State var state: TapView.TapViewState
+//    var speech: Entity?
+//    var package: Entity?
     
-    @State private var debugText: String = "TEST"
+    
+    //let tapView = TapView(state: $state)
+    let cokeAnchor = try! CokeCanExplode.loadCoke()
+    
+    
 
 
     func makeUIView(context: Context) -> UIView {
@@ -27,17 +33,21 @@ struct ARViewContainer: UIViewRepresentable {
 
     func makeUIViewController(context: Context) -> UIViewController {
         let viewController = UIViewController()
+        let tapView = TapView(state: $state)
 
         let arView = ARView(frame: .zero)
-        let cokeAnchor = try! CokeCanExplode.loadCoke()
+        //let cokeAnchor = try! CokeCanExplode.loadCoke()
         let speech = cokeAnchor.findEntity(named: "Speech")
         let package = cokeAnchor.findEntity(named: "Package")
+        
         speech?.isEnabled = false
         package?.isEnabled = false
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
         
+//        let configuration = ARObjectScanningConfiguration()
+//        arView.session.run(configuration)
         // Add object detection for `CokeCanExplode`
         arView.session.delegate = context.coordinator
         
@@ -52,9 +62,7 @@ struct ARViewContainer: UIViewRepresentable {
             arView.topAnchor.constraint(equalTo: viewController.view.topAnchor),
             arView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor)
         ])
-        
-        
-        let tapView = TapView()
+    
 
         let tapHostingController = UIHostingController(rootView: tapView)
         tapHostingController.view.backgroundColor = .clear // Set background color to clear
@@ -73,6 +81,8 @@ struct ARViewContainer: UIViewRepresentable {
     class Coordinator: NSObject, ARSessionDelegate {
 
             var parent: ARViewContainer
+            var speech: Entity?
+            var package: Entity?
 
             init(_ parent: ARViewContainer) {
                 self.parent = parent
@@ -87,10 +97,38 @@ struct ARViewContainer: UIViewRepresentable {
 
             func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
                 for anchor in anchors {
+                    // Change the tap view state to `.scanned` if it is currently in the `.identifying` state.
+                    
                     if let objectAnchor = anchor as? ARObjectAnchor {
-                        // Detected a 3D object
-                        print("Object detected: \(objectAnchor.name ?? "")")
+                        print("Detected object with name: \(objectAnchor.referenceObject.name ?? "")")
+                        // Do something with the detected object
+//                        speech = parent.cokeAnchor.findEntity(named: "Speech")
+//                        package = parent.cokeAnchor.findEntity(named: "Package")
+//                        speech?.isEnabled = true
+                        
+                        
+//                        print("Find Object")
+//
+//                        parent.state = .scanned
+//                        print(parent.state)
+                        
+//                        DispatchQueue.main.async {
+//                            parent.state = .scanned
+//                        }
+                        
+                        if parent.state == .identifying {
+                            print("Identifying?")
+                            speech = parent.cokeAnchor.findEntity(named: "Speech")
+                            package = parent.cokeAnchor.findEntity(named: "Package")
+                            speech?.isEnabled = true
+                            package?.isEnabled = true
+                            
+                            DispatchQueue.main.async {
+                                self.parent.state = .scanned
+                            }
+                        }
                     }
+                
                 }
             }
         }
@@ -142,7 +180,7 @@ extension ARView: ARCoachingOverlayViewDelegate {
     }
     
     public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        //coachingOverlay.activatesAutomatically = false
+        coachingOverlayView.activatesAutomatically = false
         print("[DEBUG]: coachingOverlay dismissed")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             UIView.animate(withDuration: 0.5) {
@@ -158,10 +196,10 @@ extension ARView: ARCoachingOverlayViewDelegate {
 
 }
 
-#if DEBUG
-struct ContentView_Previews : PreviewProvider {
-    static var previews: some View {
-        ARViewContainer()
-    }
-}
-#endif
+//#if DEBUG
+//struct ContentView_Previews : PreviewProvider {
+//    static var previews: some View {
+//        ARViewContainer(, state: <#TapView.TapViewState#>)
+//    }
+//}
+//#endif
