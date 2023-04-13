@@ -17,7 +17,7 @@ struct TopBarView: View {
             } label: {
                 VStack {
                     Image(systemName: "person")
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .bold()
                         .frame(width: 52,height: 52)
                         .background(Color("LightGreen").opacity(0.7))

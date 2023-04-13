@@ -28,8 +28,8 @@ struct TabBarView: View {
                     .toolbarBackground(.hidden, for: .tabBar)
                 ScoresView()
                     .tabItem {
-                        selectedTab == 2 ? Image(systemName: "trophy.circle") : Image(systemName: "trophy")
-                        Text("Scores")
+                        selectedTab == 2 ? Image(systemName: "cart.circle") : Image(systemName: "cart")
+                        Text("Cart")
                     }.tag(2)
             }
         }
