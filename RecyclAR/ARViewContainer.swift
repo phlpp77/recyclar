@@ -40,7 +40,42 @@ struct ARViewContainer: UIViewRepresentable {
         
         cokeNormal?.isEnabled = true
         
-        spawnTV(in: arView)
+        //spawnTV(in: arView)
+        
+        let asset = AVURLAsset(url: Bundle.main.url(forResource: "DemoShortVideo", withExtension: "mp4")!)
+        let playerItem = AVPlayerItem(asset: asset)
+        let player = AVPlayer()
+        let dimensions: SIMD3<Float> = [1.23, 0.046, 0.7]
+        let housingMesh = MeshResource.generateBox(size: dimensions)
+        let housingMat = SimpleMaterial(color: .black, roughness: 0.4, isMetallic: false)
+        let housingEntity = ModelEntity(mesh: housingMesh, materials: [housingMat])
+        
+        let screenMesh = MeshResource.generatePlane(width: dimensions.x, depth: dimensions.z)
+        let screenMat = SimpleMaterial(color: .white, roughness: 0.2, isMetallic: false)
+        let screenEntity = ModelEntity(mesh: screenMesh, materials: [screenMat])
+        
+        screenEntity.name = "tvScreen"
+        
+        housingEntity.addChild(screenEntity)
+        screenEntity.setPosition([0, dimensions.y/2 + 0.001, 0], relativeTo: housingEntity)
+        
+        //create anchor to place TV on wall
+        let anchor = AnchorEntity(plane: .vertical)
+        anchor.addChild(housingEntity)
+        //arView.scene.addAnchor(anchor)
+        
+        cokeNormal?.addChild(screenEntity)
+        
+        arView.scene.anchors.append(anchor)
+        arView.scene.anchors.append(cokeAnchor)
+
+        
+        screenEntity.model?.materials =  [VideoMaterial(avPlayer: player)]
+        player.replaceCurrentItem(with: playerItem)
+        cokeNormal?.addChild(screenEntity)
+
+        
+        player.play()
         
         
 //        if let url = Bundle.main.url(forResource: "happy", withExtension: "mp4") {
@@ -80,19 +115,19 @@ struct ARViewContainer: UIViewRepresentable {
 //            //cokeNormal?.addChild(modelEntity)
 //                    }
 //
-        let url = Bundle.main.url(forResource: "happy", withExtension: "mp4")
-        let asset = AVURLAsset(url: url!)
+//        let url = Bundle.main.url(forResource: "happy", withExtension: "mp4")
+//        let asset = AVURLAsset(url: url!)
+//
+//
+//        //let playerItem = AVPlayerItem(url: url!)
+//        let playerItem = AVPlayerItem(asset: asset)
+//
+//
+//        //let player = AVQueuePlayer()
+//        let player = AVPlayer()
 
         
-        //let playerItem = AVPlayerItem(url: url!)
-        let playerItem = AVPlayerItem(asset: asset)
-
-        
-        //let player = AVQueuePlayer()
-        let player = AVPlayer()
-
-        
-        let material = VideoMaterial(avPlayer: player)
+//        let material = VideoMaterial(avPlayer: player)
         
 //        do {
 //            let cube = MeshResource.generateBox(width: 0.3, height: 0.3, depth: 0.1)
