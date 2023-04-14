@@ -18,7 +18,7 @@ struct ARViewContainer: UIViewRepresentable {
     @State var state: TapView.TapViewState
     
     
-    let cokeAnchor = try! CokeCanExplode.loadGVU()
+    let cokeAnchor = try! CokeCanExplode.loadGVUTest()
     let player2 = AVPlayer()
 
 
@@ -40,42 +40,80 @@ struct ARViewContainer: UIViewRepresentable {
         
         cokeNormal?.isEnabled = true
         
+        spawnTV(in: arView)
         
-        if let url = Bundle.main.url(forResource: "happy", withExtension: "mp4") {
-            
-            let asset = AVURLAsset(
-              url: Bundle.main.url(
-            forResource: "happy", withExtension: "mp4")!
-            )
-            let playerItem = AVPlayerItem(asset: asset)
-            // Create a Material and assign it to your model entity
-            cokeAnchor.materials = [VideoMaterial(player: player2)]
-            // Tell the player to load and play
-            player2.replaceCurrentItem(with: playerItem)
-            
-            
-            
-            print("yes")
-            let player = AVPlayer(url: url)
-            let material = VideoMaterial(avPlayer: player)
-            //material.looping = true // enable looping
-            
-            //let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
-            let cube = MeshResource.generateBox(width: 0.3, height: 0.3, depth: 0.1)
+        
+//        if let url = Bundle.main.url(forResource: "happy", withExtension: "mp4") {
+//
+//            let asset = AVURLAsset(
+//              url: Bundle.main.url(
+//            forResource: "happy", withExtension: "mp4")!
+//            )
+//            let playerItem = AVPlayerItem(asset: asset)
+////            // Create a Material and assign it to your model entity
+////            cokeAnchor.materials = [VideoMaterial(player: player2)]
+////            // Tell the player to load and play
+////            player2.replaceCurrentItem(with: playerItem)
+//
+//            do {
+//                let entity = try Entity.loadModel(named: "test.usdz")
+//                entity.model?.materials = [VideoMaterial(avPlayer: player2)]
+//                cokeAnchor.addChild(entity)
+//            } catch {
+//                assertionFailure("Could not load the panel asset.")
+//            }
+//
+//
+//
+//            print("yes")
+//            let player = AVPlayer(url: url)
+//            let material = VideoMaterial(avPlayer: player)
+//            //material.looping = true // enable looping
+//
+//            //let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
+//            let cube = MeshResource.generateBox(width: 0.3, height: 0.3, depth: 0.1)
+//
+//            let modelComponent = ModelComponent(mesh: cube, materials: [material])
+//            //cokeNormal?.components.set(modelComponent) // set the new ModelComponent to the entity
+//
+//            let modelEntity = ModelEntity(mesh: cube, materials: [material])
+//            //cokeNormal?.addChild(modelEntity)
+//                    }
+//
+        let url = Bundle.main.url(forResource: "happy", withExtension: "mp4")
+        let asset = AVURLAsset(url: url!)
 
-            let modelComponent = ModelComponent(mesh: cube, materials: [material])
-            //cokeNormal?.components.set(modelComponent) // set the new ModelComponent to the entity
-            
-            let modelEntity = ModelEntity(mesh: cube, materials: [material])
-            //cokeNormal?.addChild(modelEntity)
-                    }
         
+        //let playerItem = AVPlayerItem(url: url!)
+        let playerItem = AVPlayerItem(asset: asset)
+
         
+        //let player = AVQueuePlayer()
+        let player = AVPlayer()
+
         
-        arView.addCoaching()
-        arView.scene.anchors.append(cokeAnchor)
+        let material = VideoMaterial(avPlayer: player)
         
-        player2.play()
+//        do {
+//            let cube = MeshResource.generateBox(width: 0.3, height: 0.3, depth: 0.1)
+//
+//            let entity = try Entity.loadModel(named: "test.usdz")
+//            entity.model?.materials = [material]
+//
+//            let modelEntity = ModelEntity(mesh: cube, materials: [material])
+//
+//            player.play()
+//
+//            cokeAnchor.addChild(modelEntity)
+//            arView.scene.anchors.append(contentsOf: [cokeAnchor])
+//        } catch {
+//            assertionFailure("Could not load the panel asset.")
+//        }
+
+        
+//        arView.addCoaching()
+//        arView.scene.anchors.append(cokeAnchor)
+        
         //player.play()
 
         
@@ -109,6 +147,37 @@ struct ARViewContainer: UIViewRepresentable {
         ])
             
         return viewController
+        
+        func spawnTV(in arView: ARView){
+            
+            let asset = AVURLAsset(url: Bundle.main.url(forResource: "happy", withExtension: "mp4")!)
+            let playerItem = AVPlayerItem(asset: asset)
+            let player = AVPlayer()
+            let dimensions: SIMD3<Float> = [1.23, 0.046, 0.7]
+            let housingMesh = MeshResource.generateBox(size: dimensions)
+            let housingMat = SimpleMaterial(color: .black, roughness: 0.4, isMetallic: false)
+            let housingEntity = ModelEntity(mesh: housingMesh, materials: [housingMat])
+            
+            let screenMesh = MeshResource.generatePlane(width: dimensions.x, depth: dimensions.z)
+            let screenMat = SimpleMaterial(color: .white, roughness: 0.2, isMetallic: false)
+            let screenEntity = ModelEntity(mesh: screenMesh, materials: [screenMat])
+            
+            screenEntity.name = "tvScreen"
+            
+            housingEntity.addChild(screenEntity)
+            screenEntity.setPosition([0, dimensions.y/2 + 0.001, 0], relativeTo: housingEntity)
+            
+            //create anchor to place TV on wall
+            let anchor = AnchorEntity(plane: .vertical)
+            anchor.addChild(housingEntity)
+            arView.scene.addAnchor(anchor)
+            
+            screenEntity.model?.materials =  [VideoMaterial(avPlayer: player)]
+            player.replaceCurrentItem(with: playerItem)
+            player.play()
+
+            
+        }
     }
     
     class Coordinator: NSObject, ARSessionDelegate {
