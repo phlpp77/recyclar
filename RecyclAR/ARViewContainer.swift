@@ -38,8 +38,9 @@ struct ARViewContainer: UIViewRepresentable {
         
         cokeNormal?.isEnabled = false
         cokeExplode?.isEnabled = true
-        cokeClose?.isEnabled = false
+        cokeClose?.isEnabled = true
         
+        cokeAnchor.notifications.explode.post()
         cokeAnchor.notifications.close.post()
 
         
