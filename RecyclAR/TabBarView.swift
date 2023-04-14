@@ -26,7 +26,7 @@ struct TabBarView: View {
                     }.tag(1)
                     .edgesIgnoringSafeArea(.all)
                     .toolbarBackground(.hidden, for: .tabBar)
-                ScoresView()
+                CartView()
                     .tabItem {
                         selectedTab == 2 ? Image(systemName: "cart.circle") : Image(systemName: "cart")
                         Text("Cart")
