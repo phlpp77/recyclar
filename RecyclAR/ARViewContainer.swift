@@ -117,12 +117,12 @@ struct ARViewContainer: UIViewRepresentable {
 //                            self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
 //                            self.parent.cokeAnchor.notifications.close.post()
                             
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                                self.parent.state = .scanned
+//                            }
+                            
+                            
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                self.parent.state = .scanned
-                            }
-                            
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                 self.parent.state = .objectFound
                                 
                             }
