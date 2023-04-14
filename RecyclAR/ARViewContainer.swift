@@ -19,7 +19,8 @@ struct ARViewContainer: UIViewRepresentable {
     
     
     let cokeAnchor = try! CokeCanExplode.loadGVU()
-    
+    let player2 = AVPlayer()
+
 
     func makeUIView(context: Context) -> UIView {
         return makeUIViewController(context: context).view
@@ -41,26 +42,42 @@ struct ARViewContainer: UIViewRepresentable {
         
         
         if let url = Bundle.main.url(forResource: "happy", withExtension: "mp4") {
+            
+            let asset = AVURLAsset(
+              url: Bundle.main.url(
+            forResource: "happy", withExtension: "mp4")!
+            )
+            let playerItem = AVPlayerItem(asset: asset)
+            // Create a Material and assign it to your model entity
+            cokeAnchor.materials = [VideoMaterial(player: player2)]
+            // Tell the player to load and play
+            player2.replaceCurrentItem(with: playerItem)
+            
+            
+            
+            print("yes")
             let player = AVPlayer(url: url)
             let material = VideoMaterial(avPlayer: player)
             //material.looping = true // enable looping
             
-            let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
+            //let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
             let cube = MeshResource.generateBox(width: 0.3, height: 0.3, depth: 0.1)
 
             let modelComponent = ModelComponent(mesh: cube, materials: [material])
-            cokeNormal?.components.set(modelComponent) // set the new ModelComponent to the entity
+            //cokeNormal?.components.set(modelComponent) // set the new ModelComponent to the entity
             
             let modelEntity = ModelEntity(mesh: cube, materials: [material])
-            cokeNormal?.addChild(modelEntity)
-            
-            player.play()
-        }
+            //cokeNormal?.addChild(modelEntity)
+                    }
         
         
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
+        
+        player2.play()
+        //player.play()
+
         
         
         // Add object detection for `CokeCanExplode`
