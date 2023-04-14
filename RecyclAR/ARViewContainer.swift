@@ -109,7 +109,7 @@ struct ARViewContainer: UIViewRepresentable {
                         if parent.state == .identifying || parent.state == .tapToPosition {
                             
                             cokeExplode?.isEnabled = true
-                            self.parent.cokeAnchor.notifications.triggerEx01.post() //trigger action sequence
+                            self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 self.parent.state = .scanned
