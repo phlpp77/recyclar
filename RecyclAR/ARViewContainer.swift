@@ -104,11 +104,11 @@ struct ARViewContainer: UIViewRepresentable {
                         
                         print(parent.state)
                         
-                        cokeNormal = self.parent.cokeAnchor.findEntity(named: "CokeNormal")
+                        cokeExplode = self.parent.cokeAnchor.findEntity(named: "CokeExplode")
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
                             
-                            cokeNormal?.isEnabled = true
+                            cokeExplode?.isEnabled = true
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 self.parent.state = .scanned
