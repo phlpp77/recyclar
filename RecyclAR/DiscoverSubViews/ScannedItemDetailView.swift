@@ -48,6 +48,6 @@ struct ScannedItemDetailView: View {
 struct ScannedItemDetailView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ScannedItemDetailView(product: Product(name: "Cheerios", imageName: "cheerios", sustainabilityPoints: 80))
+        ScannedItemDetailView(product: Product(name: "Cheerios", imageName: "cheerios", sustainabilityPoints: 80, price: 1.0))
     }
 }

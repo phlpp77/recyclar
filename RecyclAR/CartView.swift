@@ -11,9 +11,13 @@ struct CartView: View {
     var body: some View {
         VStack {
             
+            Text("Points Preview")
+                .font(.title)
+            
             // QR Code
             Image(systemName: "qrcode")
                 .font(.system(size: 150))
+                .padding(.top, 25)
             Text("Tap to enlarge")
                 .padding(.top, 2)
             
@@ -34,6 +38,8 @@ struct CartView: View {
             .padding(.horizontal, 52)
             .padding(.top, 28)
             
+            CartListView()
+                .padding(.top, 50)
             Spacer()
         }
         .navigationTitle("Points Preview")

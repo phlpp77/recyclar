@@ -41,6 +41,6 @@ struct ScannedItemView: View {
 
 struct ScannedItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ScannedItemView(product: Product(name: "Cheerios", imageName: "cheerios", sustainabilityPoints: 80))
+        ScannedItemView(product: Product(name: "Cheerios", imageName: "cheerios", sustainabilityPoints: 80, price: 1.0))
     }
 }
