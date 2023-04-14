@@ -8,6 +8,7 @@
 import ARKit
 import SwiftUI
 import RealityKit
+import AVFoundation
 
 
 /// ARViewContainer holds our AR scenes provided in the Reality Project
@@ -36,12 +37,37 @@ struct ARViewContainer: UIViewRepresentable {
         let cokeExplode = cokeAnchor.findEntity(named: "CokeExplode")
         let cokeClose = cokeAnchor.findEntity(named: "CokeClose")
         
-        cokeNormal?.isEnabled = false
-        cokeExplode?.isEnabled = false
-        cokeClose?.isEnabled = false
+        cokeNormal?.isEnabled = true
+//        cokeExplode?.isEnabled = false
+//        cokeClose?.isEnabled = false
         
 //        cokeAnchor.notifications.explode.post()
 //        cokeAnchor.notifications.close.post()
+        
+//        let videoURL = Bundle.main.url(forResource: "myVideo", withExtension: "mp4")!
+//        let player = AVPlayer(url: videoURL)
+//        player.play()
+//
+//        let videoMaterial = VideoMaterial(avPlayer: player)
+//        var material = SimpleMaterial()
+//        material.baseColor = MaterialColorParameter.texture(videoMaterial)
+//        cokeNormal?.model?.materials = [material]
+//
+        
+        let videoURL = Bundle.main.url(forResource: "myVideo", withExtension: "mp4")!
+        let player = AVPlayer(url: videoURL)
+        player.play()
+        let videoMaterial = VideoMaterial(avPlayer: player)
+        let material = SimpleMaterial()
+        
+        do {
+            let entity = try Entity.loadModel(named: "Coke can.usdz")
+            entity.model?.materials = [material]
+            cokeAnchor.addChild(entity)
+            arView.scene.anchors.append(contentsOf: [cokeAnchor])
+        } catch {
+            assertionFailure("Could not load the panel asset.")
+        }
 
         
         arView.addCoaching()
@@ -108,10 +134,12 @@ struct ARViewContainer: UIViewRepresentable {
                         
                         cokeExplode = self.parent.cokeAnchor.findEntity(named: "CokeExplode")
                         cokeClose = self.parent.cokeAnchor.findEntity(named: "CokeClose")
+                        cokeNormal = self.parent.cokeAnchor.findEntity(named: "CokeNormal")
+                        
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
                             
-                            cokeExplode?.isEnabled = true
+                            //cokeExplode?.isEnabled = true
                             //cokeClose?.isEnabled = true
                             
 //                            self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
@@ -120,6 +148,7 @@ struct ARViewContainer: UIViewRepresentable {
 //                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 //                                self.parent.state = .scanned
 //                            }
+                            
                             
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
