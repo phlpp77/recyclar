@@ -20,7 +20,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     
     //let tapView = TapView(state: $state)
-    let cokeAnchor = try! CokeCanExplode.loadCoke()
+    let cokeAnchor = try! CokeCanExplode.loadGVU()
     let mentosAnchor = try! CokeCanExplode.loadMentos()
     
     

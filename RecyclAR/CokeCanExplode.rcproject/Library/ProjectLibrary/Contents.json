@@ -28,5 +28,25 @@
     "libraryIdentifier" : "353768da12ee951c83e30dd90d4c813a",
     "format" : "arObject",
     "displayName" : "CokeZero.arobject"
+  },
+  {
+    "libraryIdentifier" : "d14ea80fdd07165c097953383d954561",
+    "format" : "model",
+    "displayName" : "Coke can no anim.usdz"
+  },
+  {
+    "libraryIdentifier" : "14dc000a15dd060c596e40d0b65d61b7",
+    "format" : "model",
+    "displayName" : "Coke can.usdz"
+  },
+  {
+    "libraryIdentifier" : "5433fb98d359ee1c99e43cbb45093a1c",
+    "format" : "model",
+    "displayName" : "Cokecan_closeanim.usdz"
+  },
+  {
+    "libraryIdentifier" : "7520569f3617e966d7379637c4904c82",
+    "format" : "arObject",
+    "displayName" : "coke_0413_03.arobject"
   }
 ]
