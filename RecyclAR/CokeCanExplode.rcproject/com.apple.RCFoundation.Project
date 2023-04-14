@@ -115,6 +115,49 @@
                                     {
                                       "configurationBox" : {
                                         "configuration" : {
+                                          "angularCoefficient" : 1,
+                                          "duration" : 1,
+                                          "isTransformInitKeyPath" : true,
+                                          "linearCoefficient" : 1,
+                                          "location" : [
+                                            0,
+                                            0,
+                                            0.25493168830871582
+                                          ],
+                                          "moveEase" : "easeInOut",
+                                          "respectPhysics" : false,
+                                          "scale" : 0.071406528353691101,
+                                          "target" : [
+                                            "9F8F828A-B1E5-4307-9FEC-BF14D3563E46"
+                                          ]
+                                        },
+                                        "name" : {
+                                          "arguments" : "absolute",
+                                          "type" : "transform"
+                                        }
+                                      },
+                                      "identifier" : "AD90CE2A-ED9E-429B-B886-530A1BB601D9",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "424589EE-4B10-4F2F-A7C4-C8C2CA1680BF",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        },
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
                                           "animationSpeed" : 1,
                                           "audioGain" : 1,
                                           "clipDuration" : 0,
