@@ -36,28 +36,17 @@ struct ARViewContainer: UIViewRepresentable {
         let cokeExplode = cokeAnchor.findEntity(named: "CokeExplode")
         let cokeClose = cokeAnchor.findEntity(named: "CokeClose")
         
-//        cokeNormal?.isEnabled = false
-//        cokeExplode?.isEnabled = true
-//        cokeClose?.isEnabled = true
+        cokeNormal?.isEnabled = false
+        cokeExplode?.isEnabled = false
+        cokeClose?.isEnabled = false
         
-        cokeAnchor.notifications.allNotifications[0].post()
-
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            cokeAnchor.notifications.explodeCoke.post()
-            cokeAnchor.notifications.closeCoke.post()
-            
-            cokeAnchor.notifications.allNotifications[0].post()
-
-            
-        }
+//        cokeAnchor.notifications.explode.post()
+//        cokeAnchor.notifications.close.post()
 
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
         
-        cokeAnchor.notifications.test.post()
-
         
         // Add object detection for `CokeCanExplode`
         
@@ -109,7 +98,6 @@ struct ARViewContainer: UIViewRepresentable {
             func sessionInterruptionEnded(_ session: ARSession) {}
 
             func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-                
                 for anchor in anchors {
                     
                     // Change the tap view state to `.scanned` if it is currently in the `.identifying` state.
@@ -120,17 +108,14 @@ struct ARViewContainer: UIViewRepresentable {
                         
                         cokeExplode = self.parent.cokeAnchor.findEntity(named: "CokeExplode")
                         cokeClose = self.parent.cokeAnchor.findEntity(named: "CokeClose")
-                        
-                        self.parent.cokeAnchor.notifications.test.post()
-
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
                             
-                            //cokeExplode?.isEnabled = true
+                            cokeExplode?.isEnabled = true
                             //cokeClose?.isEnabled = true
                             
-                            self.parent.cokeAnchor.notifications.explodeCoke.post() //trigger action sequence
-                            self.parent.cokeAnchor.notifications.closeCoke.post()
+//                            self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
+//                            self.parent.cokeAnchor.notifications.close.post()
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 self.parent.state = .scanned
