@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ScannerView: View {
+    @State private var tapViewState: TapView.TapViewState = .tapToPosition
+
     var body: some View {
         ARViewContainer(state: tapViewState)
     }
