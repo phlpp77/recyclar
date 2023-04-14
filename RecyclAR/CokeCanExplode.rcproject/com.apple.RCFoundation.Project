@@ -156,7 +156,7 @@
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Behavior 1",
+                      "name" : "CloseCoke",
                       "triggers" : [
                         {
                           "__content" : [
@@ -240,7 +240,7 @@
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Behavior 2",
+                      "name" : "AnimVid",
                       "triggers" : [
                         {
                           "__content" : [

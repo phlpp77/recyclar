@@ -40,8 +40,11 @@ struct ARViewContainer: UIViewRepresentable {
         cokeExplode?.isEnabled = true
         cokeClose?.isEnabled = true
         
-        cokeAnchor.notifications.explodeCoke.post()
-        cokeAnchor.notifications.close.post()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            cokeAnchor.notifications.explodeCoke.post()
+            cokeAnchor.notifications.closeCoke.post()
+            
+        }
 
         
         arView.addCoaching()
@@ -114,8 +117,8 @@ struct ARViewContainer: UIViewRepresentable {
                             //cokeExplode?.isEnabled = true
                             //cokeClose?.isEnabled = true
                             
-                            self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
-                            self.parent.cokeAnchor.notifications.close.post()
+                            self.parent.cokeAnchor.notifications.explodeCoke.post() //trigger action sequence
+                            self.parent.cokeAnchor.notifications.closeCoke.post()
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 self.parent.state = .scanned
