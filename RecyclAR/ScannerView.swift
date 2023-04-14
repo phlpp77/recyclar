@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScannerView: View {
     var body: some View {
-        ARViewContainer()
+        ARViewContainer(state: tapViewState)
     }
 }
 
