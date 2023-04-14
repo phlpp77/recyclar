@@ -38,37 +38,26 @@ struct ARViewContainer: UIViewRepresentable {
         let cokeClose = cokeAnchor.findEntity(named: "CokeClose")
         
         cokeNormal?.isEnabled = true
-//        cokeExplode?.isEnabled = false
-//        cokeClose?.isEnabled = false
         
-//        cokeAnchor.notifications.explode.post()
-//        cokeAnchor.notifications.close.post()
         
-//        let videoURL = Bundle.main.url(forResource: "myVideo", withExtension: "mp4")!
-//        let player = AVPlayer(url: videoURL)
-//        player.play()
-//
-//        let videoMaterial = VideoMaterial(avPlayer: player)
-//        var material = SimpleMaterial()
-//        material.baseColor = MaterialColorParameter.texture(videoMaterial)
-//        cokeNormal?.model?.materials = [material]
-//
-        
-        let videoURL = Bundle.main.url(forResource: "myVideo", withExtension: "mp4")!
-        let player = AVPlayer(url: videoURL)
-        player.play()
-        let videoMaterial = VideoMaterial(avPlayer: player)
-        let material = SimpleMaterial()
-        
-        do {
-            let entity = try Entity.loadModel(named: "Coke can.usdz")
-            entity.model?.materials = [material]
-            cokeAnchor.addChild(entity)
-            arView.scene.anchors.append(contentsOf: [cokeAnchor])
-        } catch {
-            assertionFailure("Could not load the panel asset.")
-        }
+        if let url = Bundle.main.url(forResource: "happy", withExtension: "mp4") {
+            let player = AVPlayer(url: url)
+            let material = VideoMaterial(avPlayer: player)
+            //material.looping = true // enable looping
+            
+            let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
+            let cube = MeshResource.generateBox(width: 0.3, height: 0.3, depth: 0.1)
 
+            let modelComponent = ModelComponent(mesh: cube, materials: [material])
+            cokeNormal?.components.set(modelComponent) // set the new ModelComponent to the entity
+            
+            let modelEntity = ModelEntity(mesh: cube, materials: [material])
+            cokeNormal?.addChild(modelEntity)
+            
+            player.play()
+        }
+        
+        
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)

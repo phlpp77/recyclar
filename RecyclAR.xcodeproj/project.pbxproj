@@ -23,6 +23,7 @@
 		17F8D8A729AEEB8F009C0F08 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8D8A629AEEB8F009C0F08 /* ARViewContainer.swift */; };
 		17F8D8AB29AEEB90009C0F08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F8D8AA29AEEB90009C0F08 /* Assets.xcassets */; };
 		17F8D8AE29AEEB90009C0F08 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F8D8AD29AEEB90009C0F08 /* Preview Assets.xcassets */; };
+		F107182629E92ECC009BD255 /* happy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F107182529E92ECC009BD255 /* happy.mp4 */; };
 		F186B98029E91D9700730F0B /* myVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = F186B97F29E91D9700730F0B /* myVideo.mov */; };
 		F186B98229E91E0100730F0B /* myVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F186B98129E91E0100730F0B /* myVideo.mp4 */; };
 		F1CC4E9229E61091002E9CB3 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC4E9129E61091002E9CB3 /* TapView.swift */; };
@@ -47,6 +48,7 @@
 		17F8D8A629AEEB8F009C0F08 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		17F8D8AA29AEEB90009C0F08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F8D8AD29AEEB90009C0F08 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F107182529E92ECC009BD255 /* happy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = happy.mp4; sourceTree = "<group>"; };
 		F186B97F29E91D9700730F0B /* myVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = myVideo.mov; sourceTree = "<group>"; };
 		F186B98129E91E0100730F0B /* myVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = myVideo.mp4; sourceTree = "<group>"; };
 		F1CC4E9129E61091002E9CB3 /* TapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		17F8D89829AEEB8E009C0F08 = {
 			isa = PBXGroup;
 			children = (
+				F107182529E92ECC009BD255 /* happy.mp4 */,
 				F186B98129E91E0100730F0B /* myVideo.mp4 */,
 				F186B97F29E91D9700730F0B /* myVideo.mov */,
 				17F8D8A329AEEB8F009C0F08 /* RecyclAR */,
@@ -181,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F107182629E92ECC009BD255 /* happy.mp4 in Resources */,
 				F186B98229E91E0100730F0B /* myVideo.mp4 in Resources */,
 				F186B98029E91D9700730F0B /* myVideo.mov in Resources */,
 				17F8D8AE29AEEB90009C0F08 /* Preview Assets.xcassets in Resources */,
