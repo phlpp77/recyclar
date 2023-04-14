@@ -163,7 +163,7 @@
                             {
                               "configurationBox" : {
                                 "configuration" : {
-                                  "userIdentifier" : "close"
+                                  "userIdentifier" : "Close"
                                 },
                                 "name" : "custom"
                               },
@@ -247,7 +247,7 @@
                             {
                               "configurationBox" : {
                                 "configuration" : {
-                                  "userIdentifier" : "animVid"
+                                  "userIdentifier" : "AnimVid"
                                 },
                                 "name" : "custom"
                               },

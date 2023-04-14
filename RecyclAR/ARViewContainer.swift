@@ -105,11 +105,15 @@ struct ARViewContainer: UIViewRepresentable {
                         print(parent.state)
                         
                         cokeExplode = self.parent.cokeAnchor.findEntity(named: "CokeExplode")
+                        cokeClose = self.parent.cokeAnchor.findEntity(named: "CokeClose")
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
                             
                             cokeExplode?.isEnabled = true
+                            cokeClose?.isEnabled = true
+                            
                             self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
+                            self.parent.cokeAnchor.notification.close.post()
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 self.parent.state = .scanned
