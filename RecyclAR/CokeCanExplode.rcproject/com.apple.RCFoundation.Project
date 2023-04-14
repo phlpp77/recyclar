@@ -79,7 +79,7 @@
                             {
                               "configurationBox" : {
                                 "configuration" : {
-                                  "userIdentifier" : "Explode"
+                                  "userIdentifier" : "explode"
                                 },
                                 "name" : "custom"
                               },
@@ -163,7 +163,7 @@
                             {
                               "configurationBox" : {
                                 "configuration" : {
-                                  "userIdentifier" : "Close"
+                                  "userIdentifier" : "close"
                                 },
                                 "name" : "custom"
                               },
