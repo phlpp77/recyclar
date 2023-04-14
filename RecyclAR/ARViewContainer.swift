@@ -40,6 +40,9 @@ struct ARViewContainer: UIViewRepresentable {
         cokeExplode?.isEnabled = true
         cokeClose?.isEnabled = true
         
+        cokeAnchor.notifications.closeCoke.post()
+
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             cokeAnchor.notifications.explodeCoke.post()
             cokeAnchor.notifications.closeCoke.post()
