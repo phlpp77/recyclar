@@ -15,16 +15,10 @@ struct ARViewContainer: UIViewRepresentable {
     
     @State var isCoachOverlayActive = true
     @State var state: TapView.TapViewState
-//    var speech: Entity?
-//    var package: Entity?
     
     
-    //let tapView = TapView(state: $state)
     let cokeAnchor = try! CokeCanExplode.loadGVU()
-    let mentosAnchor = try! CokeCanExplode.loadMentos()
     
-    
-
 
     func makeUIView(context: Context) -> UIView {
         return makeUIViewController(context: context).view
@@ -38,22 +32,18 @@ struct ARViewContainer: UIViewRepresentable {
 
         let arView = ARView(frame: .zero)
         //let cokeAnchor = try! CokeCanExplode.loadCoke()
-        let speech = cokeAnchor.findEntity(named: "Speech")
-        let package = cokeAnchor.findEntity(named: "Package")
+        let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
+        let cokeExplode = cokeAnchor.findEntity(named: "CokeExplode")
+        let cokeClose = cokeAnchor.findEntity(named: "CokeClose")
         
-        let p_mentos = mentosAnchor.findEntity(named: "Package")
-        let g_mentos = mentosAnchor.findEntity(named: "Graph")
-        let s_mentos = mentosAnchor.findEntity(named: "SUS")
+        cokeNormal?.isEnabled = false
+        cokeExplode?.isEnabled = false
+        cokeClose?.isEnabled = false
         
-        speech?.isEnabled = false
-        package?.isEnabled = false
-        p_mentos?.isEnabled = false
-        g_mentos?.isEnabled = false
-        s_mentos?.isEnabled = false
+
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
-        arView.scene.anchors.append(mentosAnchor)
         
         
         // Add object detection for `CokeCanExplode`
@@ -90,10 +80,9 @@ struct ARViewContainer: UIViewRepresentable {
     class Coordinator: NSObject, ARSessionDelegate {
 
             var parent: ARViewContainer
-            var speech: Entity?
-            var package: Entity?
-            var p_mentos: Entity?
-            var objectDetected = false
+            var cokeNormal: Entity?
+            var cokeExplode: Entity?
+            var cokeClose: Entity?
 
             init(_ parent: ARViewContainer) {
                 self.parent = parent
@@ -113,22 +102,13 @@ struct ARViewContainer: UIViewRepresentable {
                     if let objectAnchor = anchor as? ARObjectAnchor {
                         print("Detected object with name: \(objectAnchor.referenceObject.name ?? "")")
                         
-                        
-                        if(objectAnchor.referenceObject.name == "mentos.arobject"){
-                            print("OBJ1")
-                        }
                         print(parent.state)
                         
-                        package = self.parent.cokeAnchor.findEntity(named: "Package")
-                        speech = self.parent.cokeAnchor.findEntity(named: "Speech")
-                        p_mentos = self.parent.mentosAnchor.findEntity(named: "Package")
+                        cokeNormal = self.parent.cokeAnchor.findEntity(named: "CokeNormal")
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
-                            //print("Identifying?")
                             
-                            package?.isEnabled = true
-                            p_mentos?.isEnabled = true
-                            //speech?.isEnabled = true
+                            cokeNormal?.isEnabled = true
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 self.parent.state = .scanned
