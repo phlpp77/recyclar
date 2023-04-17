@@ -17,7 +17,6 @@ struct CartListView: View {
             LazyVStack(spacing: 4) {
                 ForEach(cartItems) { cartItem in
                     CartListItemView(product: cartItem.product, count: $count)
-                    Text("Test \(cartItem.count)")
                 }
             }
             .padding(.horizontal, 28)

@@ -15,10 +15,17 @@ struct CartView: View {
                 .font(.title)
             
             // QR Code
-            Image(systemName: "qrcode")
-                .font(.system(size: 150))
-                .padding(.top, 25)
-            Text("Tap to enlarge")
+            NavigationLink {
+                QRCodeView()
+                    .navigationTitle("Personal code")
+            } label: {
+                Image(systemName: "qrcode")
+                    .font(.system(size: 150))
+                    .padding(.top, 25)
+                    .foregroundColor(.black)
+            }
+            
+            Text("Tap code to enlarge")
                 .padding(.top, 2)
             
             // Total points and payments
@@ -26,12 +33,12 @@ struct CartView: View {
                 HStack {
                     Text("Total points")
                     Spacer()
-                    Text("130 pts")
+                    Text("160 pts")
                 }
                 HStack {
                     Text("Total payment")
                     Spacer()
-                    Text("$2.98")
+                    Text("$2.00")
                 }
             }
             .font(.title2)
