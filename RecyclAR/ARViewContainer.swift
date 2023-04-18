@@ -4,27 +4,20 @@
 //
 //  Created by Philipp Hemkemeyer, Soo Bin Park on 2/28/23.
 //
-
 import ARKit
 import SwiftUI
 import RealityKit
 
 
-/// ARViewContainer holds our AR scenes provided in the Reality Project 
+/// ARViewContainer holds our AR scenes provided in the Reality Project
 struct ARViewContainer: UIViewRepresentable {
     
     @State var isCoachOverlayActive = true
     @State var state: TapView.TapViewState
-//    var speech: Entity?
-//    var package: Entity?
     
     
-    //let tapView = TapView(state: $state)
-    let cokeAnchor = try! CokeCanExplode.loadCoke()
-    let mentosAnchor = try! CokeCanExplode.loadMentos()
+    let cokeAnchor = try! CokeCanExplode.loadGVU()
     
-    
-
 
     func makeUIView(context: Context) -> UIView {
         return makeUIViewController(context: context).view
@@ -38,22 +31,19 @@ struct ARViewContainer: UIViewRepresentable {
 
         let arView = ARView(frame: .zero)
         //let cokeAnchor = try! CokeCanExplode.loadCoke()
-        let speech = cokeAnchor.findEntity(named: "Speech")
-        let package = cokeAnchor.findEntity(named: "Package")
+        let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
+        let cokeExplode = cokeAnchor.findEntity(named: "CokeExplode")
+        let cokeClose = cokeAnchor.findEntity(named: "CokeClose")
         
-        let p_mentos = mentosAnchor.findEntity(named: "Package")
-        let g_mentos = mentosAnchor.findEntity(named: "Graph")
-        let s_mentos = mentosAnchor.findEntity(named: "SUS")
+        cokeNormal?.isEnabled = false
+        cokeExplode?.isEnabled = false
+        cokeClose?.isEnabled = false
         
-        speech?.isEnabled = false
-        package?.isEnabled = false
-        p_mentos?.isEnabled = false
-        g_mentos?.isEnabled = false
-        s_mentos?.isEnabled = false
+//        cokeAnchor.notifications.explode.post()
+//        cokeAnchor.notifications.close.post()
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
-        arView.scene.anchors.append(mentosAnchor)
         
         
         // Add object detection for `CokeCanExplode`
@@ -90,10 +80,9 @@ struct ARViewContainer: UIViewRepresentable {
     class Coordinator: NSObject, ARSessionDelegate {
 
             var parent: ARViewContainer
-            var speech: Entity?
-            var package: Entity?
-            var p_mentos: Entity?
-            var objectDetected = false
+            var cokeNormal: Entity?
+            var cokeExplode: Entity?
+            var cokeClose: Entity?
 
             init(_ parent: ARViewContainer) {
                 self.parent = parent
@@ -113,29 +102,25 @@ struct ARViewContainer: UIViewRepresentable {
                     if let objectAnchor = anchor as? ARObjectAnchor {
                         print("Detected object with name: \(objectAnchor.referenceObject.name ?? "")")
                         
-                        
-                        if(objectAnchor.referenceObject.name == "mentos.arobject"){
-                            print("OBJ1")
-                        }
                         print(parent.state)
                         
-                        package = self.parent.cokeAnchor.findEntity(named: "Package")
-                        speech = self.parent.cokeAnchor.findEntity(named: "Speech")
-                        p_mentos = self.parent.mentosAnchor.findEntity(named: "Package")
+                        cokeExplode = self.parent.cokeAnchor.findEntity(named: "CokeExplode")
+                        cokeClose = self.parent.cokeAnchor.findEntity(named: "CokeClose")
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
-                            //print("Identifying?")
                             
-                            package?.isEnabled = true
-                            p_mentos?.isEnabled = true
-                            //speech?.isEnabled = true
+                            cokeExplode?.isEnabled = true
+                            //cokeClose?.isEnabled = true
+                            
+//                            self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
+//                            self.parent.cokeAnchor.notifications.close.post()
+                            
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                                self.parent.state = .scanned
+//                            }
+                            
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                self.parent.state = .scanned
-                            }
-                            
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                 self.parent.state = .objectFound
                                 
                             }
@@ -185,7 +170,6 @@ extension ARView: ARCoachingOverlayViewDelegate {
         //            coachingOverlay.widthAnchor.constraint(equalToConstant: 293.85),
         //            coachingOverlay.heightAnchor.constraint(equalToConstant: 195.17)
         //        ])
-
         self.addSubview(coachingOverlay)
     }
     
