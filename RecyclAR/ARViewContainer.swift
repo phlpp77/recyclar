@@ -35,6 +35,16 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
         //let cokeAnchor = try! CokeCanExplode.loadCoke()
         let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
+
+        //let cokeTest = cokeAnchor.findEntity(named: "CokeNormal") as! ModelEntity
+        
+//        guard let cokeTest = cokeNormal?.components[ModelComponent.self] else {
+//            fatalError("Unable to find 'CokeNormal' entity with ModelEntity component")
+//        }
+        
+        let cokTest = ModelEntity(mesh: cokeAnchor.cokeNormal!.mesh, materials: [])
+
+
         let cokeExplode = cokeAnchor.findEntity(named: "CokeExplode")
         let cokeClose = cokeAnchor.findEntity(named: "CokeClose")
         
@@ -42,10 +52,12 @@ struct ARViewContainer: UIViewRepresentable {
         
         //spawnTV(in: arView)
         
-        let asset = AVURLAsset(url: Bundle.main.url(forResource: "DemoShortVideo", withExtension: "mp4")!)
+        let asset = AVURLAsset(url: Bundle.main.url(forResource: "happy", withExtension: "mp4")!)
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVPlayer()
         let dimensions: SIMD3<Float> = [1.23, 0.046, 0.7]
+        
+        
         let housingMesh = MeshResource.generateBox(size: dimensions)
         let housingMat = SimpleMaterial(color: .black, roughness: 0.4, isMetallic: false)
         let housingEntity = ModelEntity(mesh: housingMesh, materials: [housingMat])
@@ -62,9 +74,7 @@ struct ARViewContainer: UIViewRepresentable {
         //create anchor to place TV on wall
         let anchor = AnchorEntity(plane: .vertical)
         anchor.addChild(housingEntity)
-        //arView.scene.addAnchor(anchor)
-        
-        cokeNormal?.addChild(screenEntity)
+        arView.scene.addAnchor(anchor)
         
         arView.scene.anchors.append(anchor)
         arView.scene.anchors.append(cokeAnchor)
@@ -72,9 +82,6 @@ struct ARViewContainer: UIViewRepresentable {
         
         screenEntity.model?.materials =  [VideoMaterial(avPlayer: player)]
         player.replaceCurrentItem(with: playerItem)
-        cokeNormal?.addChild(screenEntity)
-
-        
         player.play()
         
         
@@ -127,7 +134,7 @@ struct ARViewContainer: UIViewRepresentable {
 //        let player = AVPlayer()
 
         
-//        let material = VideoMaterial(avPlayer: player)
+        let material = VideoMaterial(avPlayer: player)
         
 //        do {
 //            let cube = MeshResource.generateBox(width: 0.3, height: 0.3, depth: 0.1)
@@ -207,6 +214,7 @@ struct ARViewContainer: UIViewRepresentable {
             anchor.addChild(housingEntity)
             arView.scene.addAnchor(anchor)
             
+            cokeTest.model?.materials =  [VideoMaterial(avPlayer: player)]
             screenEntity.model?.materials =  [VideoMaterial(avPlayer: player)]
             player.replaceCurrentItem(with: playerItem)
             player.play()
