@@ -16,7 +16,7 @@ struct ARViewContainer: UIViewRepresentable {
     @State var state: TapView.TapViewState
     
     
-    let cokeAnchor = try! CokeCanExplode.loadGVU()
+    let cokeAnchor = try! CokeCanGVU.loadGVU()
     
 
     func makeUIView(context: Context) -> UIView {
