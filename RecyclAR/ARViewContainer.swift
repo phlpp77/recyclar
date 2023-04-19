@@ -14,9 +14,16 @@ struct ARViewContainer: UIViewRepresentable {
     
     @State var isCoachOverlayActive = true
     @State var state: TapView.TapViewState
+    //@State var tapHostingController: UIHostingController<TapView>
+    //@State var tapHostingController: UIHostingController<TapView> = UIHostingController(rootView: TapView(state: .constant(TapView.TapViewState.tapToPosition)))
+    
+    //@State var tapHostingControllerView: UIView? // Add this line
+
     
     
     let cokeAnchor = try! CokeCanGVU.loadGVU()
+    
+    
     
 
     func makeUIView(context: Context) -> UIView {
@@ -26,18 +33,26 @@ struct ARViewContainer: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: Context) {}
 
     func makeUIViewController(context: Context) -> UIViewController {
+        
         let viewController = UIViewController()
         let tapView = TapView(state: $state)
+        
+    
+
 
         let arView = ARView(frame: .zero)
         //let cokeAnchor = try! CokeCanExplode.loadCoke()
-        let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
+        //let cokeNormal = cokeAnchor.findEntity(named: "CokeNormal")
         let cokeExplode = cokeAnchor.findEntity(named: "CokeExplode")
         let cokeClose = cokeAnchor.findEntity(named: "CokeClose")
+        let cokeEco = cokeAnchor.findEntity(named: "CokeEco")
+        let tag = cokeAnchor.findEntity(named: "Tag")
         
-        cokeNormal?.isEnabled = false
+        //cokeNormal?.isEnabled = false
         cokeExplode?.isEnabled = false
         cokeClose?.isEnabled = false
+        cokeEco?.isEnabled = false
+        tag?.isEnabled = false
         
 //        cokeAnchor.notifications.explode.post()
 //        cokeAnchor.notifications.close.post()
@@ -62,16 +77,22 @@ struct ARViewContainer: UIViewRepresentable {
             arView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor)
         ])
     
+        //tapView.isUserInteractionEnabled = false
+        //tapView.allowsHitTesting(false)
+        
 
+        
         let tapHostingController = UIHostingController(rootView: tapView)
         tapHostingController.view.backgroundColor = .clear // Set background color to clear
         tapHostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        //tapHostingController.view.isUserInteractionEnabled = false // Add this line
         viewController.addChild(tapHostingController)
         viewController.view.addSubview(tapHostingController.view)
         tapHostingController.didMove(toParent: viewController)
         NSLayoutConstraint.activate([
             tapHostingController.view.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
-            tapHostingController.view.topAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor, constant: 16)
+            tapHostingController.view.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor, constant: -120) // adjust the constant as needed
+            //tapHostingController.view.topAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor, constant: 50)
         ])
             
         return viewController
@@ -101,29 +122,20 @@ struct ARViewContainer: UIViewRepresentable {
                     // Change the tap view state to `.scanned` if it is currently in the `.identifying` state.
                     if let objectAnchor = anchor as? ARObjectAnchor {
                         print("Detected object with name: \(objectAnchor.referenceObject.name ?? "")")
-                        
-                        print(parent.state)
-                        
+                                                
                         cokeExplode = self.parent.cokeAnchor.findEntity(named: "CokeExplode")
-                        cokeClose = self.parent.cokeAnchor.findEntity(named: "CokeClose")
+                        
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
                             
-                            cokeExplode?.isEnabled = true
-                            //cokeClose?.isEnabled = true
+                            self.cokeExplode?.isEnabled = true
+                            self.parent.state = .objectFound
+
                             
-//                            self.parent.cokeAnchor.notifications.explode.post() //trigger action sequence
-//                            self.parent.cokeAnchor.notifications.close.post()
-                            
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                                self.parent.state = .scanned
+//                            DispatchQueue.main.async {
+//                                self.parent.state = .objectFound
+//                                self.cokeExplode?.isEnabled = true
 //                            }
-                            
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                self.parent.state = .objectFound
-                                
-                            }
                             
                         }
                         
@@ -148,28 +160,6 @@ extension ARView: ARCoachingOverlayViewDelegate {
         coachingOverlay.session = self.session
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         coachingOverlay.goal = .horizontalPlane
-//        coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
-//        coachingOverlay.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-//        coachingOverlay.layer.cornerRadius = 20
-//        coachingOverlay.clipsToBounds = true
-        
-        //        let coachingOverlay = ARCoachingOverlayView()
-        //        coachingOverlay.delegate = Coordinator(self)
-        //        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //        coachingOverlay.session = arView.session
-        //        coachingOverlay.goal = .horizontalPlane
-        //        coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
-        //        coachingOverlay.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        //        coachingOverlay.layer.cornerRadius = 20
-        //        coachingOverlay.clipsToBounds = true
-        //
-        //        viewController.view.addSubview(coachingOverlay)
-        //        NSLayoutConstraint.activate([
-        //            coachingOverlay.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
-        //            coachingOverlay.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor),
-        //            coachingOverlay.widthAnchor.constraint(equalToConstant: 293.85),
-        //            coachingOverlay.heightAnchor.constraint(equalToConstant: 195.17)
-        //        ])
         self.addSubview(coachingOverlay)
     }
     
