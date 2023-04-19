@@ -53,5 +53,10 @@
     "libraryIdentifier" : "0e63762f3a7840e6f12907328591686c",
     "format" : "model",
     "displayName" : "EcoCoke.usdz"
+  },
+  {
+    "libraryIdentifier" : "639b7a7cbbba895b861d2be4bf34236e",
+    "format" : "arObject",
+    "displayName" : "cokeGVU.arobject"
   }
 ]
