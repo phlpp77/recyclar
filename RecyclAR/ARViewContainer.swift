@@ -14,8 +14,10 @@ struct ARViewContainer: UIViewRepresentable {
     
     @State var isCoachOverlayActive = true
     @State var state: TapView.TapViewState
-    //@State var tapHostingController: UIHostingController<TapView>
+    //@State var tapHostingController: UIHostingController<TapView>?
     //@State var tapHostingController: UIHostingController<TapView> = UIHostingController(rootView: TapView(state: .constant(TapView.TapViewState.tapToPosition)))
+    @StateObject var tapHostingControllerHolder = TapHostingControllerHolder()
+
     
     //@State var tapHostingControllerView: UIView? // Add this line
 
@@ -77,23 +79,24 @@ struct ARViewContainer: UIViewRepresentable {
             arView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor)
         ])
     
-        //tapView.isUserInteractionEnabled = false
-        //tapView.allowsHitTesting(false)
-        
 
+        tapHostingControllerHolder.tapHostingController = UIHostingController(rootView: tapView)
+        tapHostingControllerHolder.tapHostingController?.view.backgroundColor = .clear
+        tapHostingControllerHolder.tapHostingController?.view.translatesAutoresizingMaskIntoConstraints = false
+        //tapHostingControllerHolder.tapHostingController?.view.isUserInteractionEnabled = false
         
-        let tapHostingController = UIHostingController(rootView: tapView)
-        tapHostingController.view.backgroundColor = .clear // Set background color to clear
-        tapHostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        //tapHostingController.view.isUserInteractionEnabled = false // Add this line
-        viewController.addChild(tapHostingController)
-        viewController.view.addSubview(tapHostingController.view)
-        tapHostingController.didMove(toParent: viewController)
-        NSLayoutConstraint.activate([
-            tapHostingController.view.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
-            tapHostingController.view.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor, constant: -120) // adjust the constant as needed
-            //tapHostingController.view.topAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor, constant: 50)
-        ])
+        if let tapHostingController =  tapHostingControllerHolder.tapHostingController {
+            viewController.addChild(tapHostingController)
+            viewController.view.addSubview(tapHostingController.view)
+            tapHostingController.didMove(toParent: viewController)
+            
+            
+            NSLayoutConstraint.activate([
+                tapHostingController.view.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
+                tapHostingController.view.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor, constant: -30) // adjust the constant as needed
+                //tapHostingController.view.topAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor, constant: 50)
+            ])
+        }
             
         return viewController
     }
@@ -130,6 +133,8 @@ struct ARViewContainer: UIViewRepresentable {
                             
                             self.cokeExplode?.isEnabled = true
                             self.parent.state = .objectFound
+                            
+                            parent.tapHostingControllerHolder.tapHostingController?.view.isUserInteractionEnabled = false
 
                             
 //                            DispatchQueue.main.async {

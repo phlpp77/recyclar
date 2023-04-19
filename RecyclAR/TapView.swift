@@ -65,15 +65,15 @@ struct TapView: View {
             case .scanned:
                 return Color(#colorLiteral(red: 0.262, green: 0.723, blue: 0.921, alpha: 0.5)).opacity(0.7)
             case .objectFound:
-                //return Color.clear
-                return Color.black.opacity(0.7)
-
+                return Color.clear
+                //return Color.black.opacity(0.7)
             }
         }
         
     }
     
     @Binding var state: TapViewState
+    //@BindableObject var state: TapViewState
     
     var body: some View {
         VStack {
@@ -95,6 +95,9 @@ struct TapView: View {
                     .frame(width: state == .identifying ? 55 : 70, height: state == .identifying ? 55 : 70)
                     .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true), value: state)
                     .onTapGesture {
+                        print("TAp")
+                        print(state)
+                        state = .identifying
                         if state == .tapToPosition {
                             withAnimation(Animation.easeOut(duration: 0.5)) {
                                 state = .identifying
@@ -107,7 +110,6 @@ struct TapView: View {
         .padding()
         .frame(width: 380.46, height: 592.11)
         //.frame(width: state == .objectFound ? nil : 380.46, height: state == .objectFound ? nil : 592.11) // modify frame based on state
-        //.frame(width: 300)
         .background(
             state.frameColor
             .blur(radius: 7.5))
