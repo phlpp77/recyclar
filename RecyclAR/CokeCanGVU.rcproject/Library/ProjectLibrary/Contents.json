@@ -58,5 +58,10 @@
     "libraryIdentifier" : "639b7a7cbbba895b861d2be4bf34236e",
     "format" : "arObject",
     "displayName" : "cokeGVU.arobject"
+  },
+  {
+    "libraryIdentifier" : "70f7a08e88e4ca261238c2036d7ab469",
+    "format" : "arObject",
+    "displayName" : "pastaBox.arobject"
   }
 ]

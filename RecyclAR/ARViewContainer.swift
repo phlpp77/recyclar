@@ -23,7 +23,8 @@ struct ARViewContainer: UIViewRepresentable {
 
     
     
-    let cokeAnchor = try! CokeCanGVU.loadGVU()
+    let cokeAnchor = try! CokeCanGVU.loadCoke()
+    let pastaAnchor = try! CokeCanGVU.loadPasta()
     
     
     
