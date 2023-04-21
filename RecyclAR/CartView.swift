@@ -8,6 +8,21 @@
 import SwiftUI
 
 struct CartView: View {
+    @State private var cartItems = CartItem.all
+
+    var totalPoints: Int {
+        return cartItems.reduce(0) { total, item in
+            total + (item.product.sustainabilityPoints * item.count)
+        }
+    }
+    
+    var totalPayment: Double {
+        return cartItems.reduce(0.0) { total, item in
+            total + (item.product.price * Double(item.count))
+        }
+    }
+    
+    
     var body: some View {
         VStack {
             
@@ -33,12 +48,12 @@ struct CartView: View {
                 HStack {
                     Text("Total points")
                     Spacer()
-                    Text("160 pts")
+                    Text("\(totalPoints) pts")
                 }
                 HStack {
                     Text("Total payment")
                     Spacer()
-                    Text("$2.00")
+                    Text("$\(totalPayment, specifier: "%.2f")")
                 }
             }
             .font(.title2)

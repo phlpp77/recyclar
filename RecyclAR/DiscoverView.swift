@@ -39,7 +39,7 @@ struct DiscoverView: View {
                 .headingDiscoverTab()
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    StoreCardView(imageName: "publix-store", name: "Publix Super Market at The Plaza Midtown", location: "950 W Peachtree St NW, Atlanta, GA 30309")
+                    StoreCardView(imageName: "whole-foods", name: "Whole Foods Market at Midtown", location: "22 14th St NW, Atlanta, GA 30309")
                     StoreCardView(imageName: "publix-store", name: "Publix Super Market at The Plaza Midtown", location: "950 W Peachtree St NW, Atlanta, GA 30309")
                 }
                 .padding(.leading, 28)

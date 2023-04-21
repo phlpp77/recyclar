@@ -21,7 +21,10 @@ struct CartListItemView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipped()
-                .frame(height: 95)
+                //.frame(height: 95)
+                .frame(width: 95, height: 95) // Add frame to ensure all images have the same size
+                //.background(Color.gray.opacity(0.2)) // Add background color to show image frame
+                
             
             // Text details
             VStack(alignment: .leading, spacing: 5.0) {

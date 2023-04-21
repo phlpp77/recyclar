@@ -14,17 +14,20 @@ struct ARViewContainer: UIViewRepresentable {
     
     @State var isCoachOverlayActive = true
     @State var state: TapView.TapViewState
+    @State var customText = "Tap the object for more sustainability information"
+
     //@State var tapHostingController: UIHostingController<TapView>?
     //@State var tapHostingController: UIHostingController<TapView> = UIHostingController(rootView: TapView(state: .constant(TapView.TapViewState.tapToPosition)))
     @StateObject var tapHostingControllerHolder = TapHostingControllerHolder()
+    
 
     
     //@State var tapHostingControllerView: UIView? // Add this line
 
     
     
-    let cokeAnchor = try! CokeCanGVU.loadCoke()
-    let pastaAnchor = try! CokeCanGVU.loadPasta()
+    let cokeAnchor = try! CokeCanGVU.loadPasta()
+    //let pastaAnchor = try! CokeCanGVU.loadPasta()
     
     
     
@@ -38,7 +41,9 @@ struct ARViewContainer: UIViewRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         
         let viewController = UIViewController()
-        let tapView = TapView(state: $state)
+        //let tapView = TapView(state: $state)
+        let tapView = TapView(state: $state, customText: $customText)
+
         
     
 
@@ -56,6 +61,20 @@ struct ARViewContainer: UIViewRepresentable {
         cokeClose?.isEnabled = false
         cokeEco?.isEnabled = false
         tag?.isEnabled = false
+        
+        
+        cokeAnchor.actions.wait.onAction = { entity in
+            self.displaySustainability(entity, text: "")
+        }
+        
+        cokeAnchor.actions.showEco.onAction = { entity in
+            self.displaySustainability(entity, text: "The product has a sustainability score of 80 points.\nTap the product if you want to add it to your cart.")
+        }
+        
+        cokeAnchor.actions.tapEco.onAction = { entity in
+            self.addCart(entity, text: "")
+        }
+        
         
 //        cokeAnchor.notifications.explode.post()
 //        cokeAnchor.notifications.close.post()
@@ -102,6 +121,32 @@ struct ARViewContainer: UIViewRepresentable {
         return viewController
     }
     
+    
+    func displaySustainability(_ entity: Entity?, text: String) {
+        print("Show sustainability score")
+        customText = text
+            
+        guard let entity = entity else { return }
+        // Do something with entity...
+    }
+    
+    func addCart(_ entity: Entity?, text: String) {
+        print("Added to Cart")
+        customText = text
+            
+        guard let entity = entity else { return }
+        // Do something with entity...
+        
+        // Add a new product to the array
+        let newProduct = Product(name: "Pasta", imageName: "pasta", sustainabilityPoints: 50, price: 1.0)
+        Product.all.append(newProduct)
+        
+        // Add the new product to the CartItem array
+        let newCartItem = CartItem(product: newProduct, count: 1)
+        CartItem.all.append(newCartItem)
+    }
+    
+    
     class Coordinator: NSObject, ARSessionDelegate {
 
             var parent: ARViewContainer
@@ -142,6 +187,12 @@ struct ARViewContainer: UIViewRepresentable {
 //                                self.parent.state = .objectFound
 //                                self.cokeExplode?.isEnabled = true
 //                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                                // your code here
+                                
+                                self.parent.state = .nothing
+                            }
                             
                         }
                         
