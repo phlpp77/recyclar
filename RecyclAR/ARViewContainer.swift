@@ -28,7 +28,6 @@ struct ARViewContainer: UIViewRepresentable {
     
     let cokeAnchor = try! CokeCanGVU.loadCoke()
     let pastaAnchor = try! CokeCanGVU.loadPasta()
-    //let pastaAnchor = try! CokeCanGVU.loadPasta()
     
     
     
@@ -81,7 +80,11 @@ struct ARViewContainer: UIViewRepresentable {
 //        }
         
         
-        pastaAnchor.actions.wait.onAction = { entity in
+        cokeAnchor.actions.waitCoke.onAction = { entity in
+            self.displaySustainability(entity, text: "")
+        }
+        
+        pastaAnchor.actions.waitPasta.onAction = { entity in
             self.displaySustainability(entity, text: "")
         }
         
@@ -93,12 +96,12 @@ struct ARViewContainer: UIViewRepresentable {
             self.displaySustainability(entity, text: "The product has a sustainability score of 60 points.\nTap the product if you want to add it to your cart.")
         }
         
-        cokeAnchor.actions.tapEco.onAction = { entity in
-            self.addCart(entity, text: "")
+        cokeAnchor.actions.tapEcocoke.onAction = { entity in
+            self.addCoke(entity, text: "")
         }
         
         
-        pastaAnchor.actions.tapEco.onAction = { entity in
+        pastaAnchor.actions.tapEcopasta.onAction = { entity in
             self.addPasta(entity, text: "")
         }
         
