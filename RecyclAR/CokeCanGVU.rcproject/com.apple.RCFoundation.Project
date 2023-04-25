@@ -681,7 +681,8 @@
                                           "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "7AD71F11-B583-436E-971D-B9E21AD369EB"
+                                            "7AD71F11-B583-436E-971D-B9E21AD369EB",
+                                            "BF45E9EF-804E-49A2-9545-53F61D27B2F6"
                                           ]
                                         },
                                         "name" : {
