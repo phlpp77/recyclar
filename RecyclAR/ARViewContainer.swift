@@ -178,7 +178,7 @@ struct ARViewContainer: UIViewRepresentable {
         // Do something with entity...
         
         // Add a new product to the array
-        let newProduct = Product(name: "Pasta", imageName: "pasta", sustainabilityPoints: 60, price: 2.0)
+        let newProduct = Product(name: "Barilla Penne", imageName: "pasta", sustainabilityPoints: 60, price: 2.0)
         Product.all.append(newProduct)
         
         // Add the new product to the CartItem array
