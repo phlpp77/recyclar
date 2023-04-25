@@ -178,5 +178,15 @@
     "libraryIdentifier" : "bf6f1d2854a54faa269586b3e0596724",
     "format" : "model",
     "displayName" : "eco coke can2.usdz"
+  },
+  {
+    "libraryIdentifier" : "c9d824c82773c72f944f82b682ffa8bd",
+    "format" : "arObject",
+    "displayName" : "pastaFinal.arobject"
+  },
+  {
+    "libraryIdentifier" : "b60ccbfbf1f8ad6baffaf21bdb806127",
+    "format" : "arObject",
+    "displayName" : "cokeFinal.arobject"
   }
 ]
