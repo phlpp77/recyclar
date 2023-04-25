@@ -681,7 +681,7 @@
                                           "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "45836426-8E1C-4121-AD84-02F91078230B"
+                                            "7AD71F11-B583-436E-971D-B9E21AD369EB"
                                           ]
                                         },
                                         "name" : {
@@ -798,8 +798,8 @@
                                           "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "45836426-8E1C-4121-AD84-02F91078230B",
-                                            "BF45E9EF-804E-49A2-9545-53F61D27B2F6"
+                                            "BF45E9EF-804E-49A2-9545-53F61D27B2F6",
+                                            "7AD71F11-B583-436E-971D-B9E21AD369EB"
                                           ]
                                         },
                                         "name" : {
@@ -829,7 +829,7 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "target" : [
-                                            "45836426-8E1C-4121-AD84-02F91078230B"
+                                            "7AD71F11-B583-436E-971D-B9E21AD369EB"
                                           ],
                                           "userIdentifier" : "Tap ecocoke"
                                         },
@@ -869,7 +869,7 @@
                               "configurationBox" : {
                                 "configuration" : {
                                   "target" : [
-                                    "45836426-8E1C-4121-AD84-02F91078230B"
+                                    "7AD71F11-B583-436E-971D-B9E21AD369EB"
                                   ]
                                 },
                                 "name" : "tapTarget"
@@ -981,6 +981,13 @@
                             "typeName" : "UUID",
                             "value" : "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                           }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "CokeClose"
+                          }
                         ]
                       ]
                     },
@@ -1006,6 +1013,119 @@
                     }
                   },
                   "AFBC726F-29B5-4F98-B91F-8BBA684F2497" : null,
+                  "B0E923CB-8A14-42FB-969A-779943B8C4EB" : {
+                    "overrides" : {
+                      "children" : {
+                        "USDScene" : {
+                          "overrides" : {
+                            "arguments" : [
+                              [
+                                "includeSceneScaling",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : false
+                                }
+                              ],
+                              [
+                                "subpath",
+                                {
+                                  "typeName" : "String",
+                                  "value" : ""
+                                }
+                              ],
+                              [
+                                "url",
+                                {
+                                  "typeName" : "String",
+                                  "value" : "model:bf6f1d2854a54faa269586b3e0596724\/eco%20coke%20can2.usdz"
+                                }
+                              ],
+                              [
+                                "withDescendants",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : true
+                                }
+                              ]
+                            ],
+                            "factory" : {
+                              "identifier" : "com.apple.af.FileImportAssetFactory",
+                              "version" : "0.0"
+                            },
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "00E94156-C410-4170-AA8F-1BCDB35B2D07"
+                                }
+                              ]
+                            ]
+                          },
+                          "transform" : {
+                            "matrix" : [
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.af.Group",
+                        "version" : "0.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "7AD71F11-B583-436E-971D-B9E21AD369EB"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "CokeEco"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        -0.049999997019767761,
+                        0,
+                        4.371138562220267e-09,
+                        0,
+                        0,
+                        0.05000000074505806,
+                        0,
+                        0,
+                        -4.371138562220267e-09,
+                        0,
+                        -0.049999997019767761,
+                        0,
+                        0,
+                        -0.015599999576807022,
+                        0,
+                        1
+                      ]
+                    }
+                  },
                   "B362BA74-2073-4DCA-9222-F2549C66AF2E" : null,
                   "C010BBE1-2894-4D22-8650-657C1540FFD5" : null,
                   "CB3C69B5-5D35-4255-8547-8FF803D0268F" : null,
@@ -1093,118 +1213,12 @@
                             "typeName" : "UUID",
                             "value" : "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
                           }
-                        ]
-                      ]
-                    },
-                    "transform" : {
-                      "matrix" : [
-                        0.05000000074505806,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0.05000000074505806,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0.05000000074505806,
-                        0,
-                        -0.0022526325192302465,
-                        -0.015599999576807022,
-                        0,
-                        1
-                      ]
-                    }
-                  },
-                  "E9052CB9-FC62-4417-90ED-EFA7B9776F65" : {
-                    "overrides" : {
-                      "children" : {
-                        "USDScene" : {
-                          "overrides" : {
-                            "arguments" : [
-                              [
-                                "includeSceneScaling",
-                                {
-                                  "typeName" : "Bool",
-                                  "value" : false
-                                }
-                              ],
-                              [
-                                "subpath",
-                                {
-                                  "typeName" : "String",
-                                  "value" : ""
-                                }
-                              ],
-                              [
-                                "url",
-                                {
-                                  "typeName" : "String",
-                                  "value" : "model:0e63762f3a7840e6f12907328591686c\/EcoCoke.usdz"
-                                }
-                              ],
-                              [
-                                "withDescendants",
-                                {
-                                  "typeName" : "Bool",
-                                  "value" : true
-                                }
-                              ]
-                            ],
-                            "factory" : {
-                              "identifier" : "com.apple.af.FileImportAssetFactory",
-                              "version" : "0.0"
-                            },
-                            "runtimeAttributes" : [
-                              [
-                                "RuntimeIdentifier",
-                                {
-                                  "typeName" : "UUID",
-                                  "value" : "48F2C26B-9D39-4A97-8683-0FB76B9C894D"
-                                }
-                              ]
-                            ]
-                          },
-                          "transform" : {
-                            "matrix" : [
-                              1,
-                              0,
-                              0,
-                              0,
-                              0,
-                              1,
-                              0,
-                              0,
-                              0,
-                              0,
-                              1,
-                              0,
-                              0,
-                              0,
-                              0,
-                              1
-                            ]
-                          }
-                        }
-                      },
-                      "factory" : {
-                        "identifier" : "com.apple.af.Group",
-                        "version" : "0.0"
-                      },
-                      "runtimeAttributes" : [
-                        [
-                          "RuntimeIdentifier",
-                          {
-                            "typeName" : "UUID",
-                            "value" : "45836426-8E1C-4121-AD84-02F91078230B"
-                          }
                         ],
                         [
                           "entityName",
                           {
                             "typeName" : "String",
-                            "value" : "CokeEco"
+                            "value" : "CokeExplode"
                           }
                         ]
                       ]
@@ -1230,6 +1244,7 @@
                       ]
                     }
                   },
+                  "E9052CB9-FC62-4417-90ED-EFA7B9776F65" : null,
                   "F6FE33AC-AA2F-48D7-A8F2-EA2555E9C9B5" : null,
                   "FF068BCA-7086-45E3-93F2-8A726D7C20F8" : {
                     "overrides" : {
@@ -1320,7 +1335,7 @@
                           "text",
                           {
                             "typeName" : "String",
-                            "value" : "80 pts.\nEco friendly for the climate and \necho friendly for bats.\n"
+                            "value" : "70 pts.\nEco friendly for the climate and \necho friendly for bats.\n"
                           }
                         ],
                         [
@@ -1415,9 +1430,9 @@
                   0.48078614473342896,
                   0.87681913375854492,
                   0,
-                  0.20866003632545471,
-                  0.45898264646530151,
-                  0.72811651229858398,
+                  0.095414608716964722,
+                  0.8733978271484375,
+                  1.4035506248474121,
                   1
                 ],
                 "sceneTransform" : [
@@ -3039,9 +3054,9 @@
                   0.38316014409065247,
                   0.92063826322555542,
                   0,
-                  0.060863453894853592,
-                  0.2813410758972168,
-                  0.50108969211578369,
+                  0.093420371413230896,
+                  0.40614259243011475,
+                  0.81913906335830688,
                   1
                 ],
                 "sceneTransform" : [

@@ -97,7 +97,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
         
         cokeAnchor.actions.showEco.onAction = { entity in
-            self.displaySustainability(entity, text: "The product has a sustainability score of 80 points.\nTap the product if you want to add it to your cart.")
+            self.displaySustainability(entity, text: "The product has a sustainability score of 70 points.\nTap the product if you want to add it to your cart.")
         }
         
         pastaAnchor.actions.showPasta.onAction = { entity in
@@ -194,7 +194,7 @@ struct ARViewContainer: UIViewRepresentable {
         // Do something with entity...
         
         // Add a new product to the array
-        let newProduct = Product(name: "Coke", imageName: "coke", sustainabilityPoints: 80, price: 1.0)
+        let newProduct = Product(name: "Coke", imageName: "coke", sustainabilityPoints: 70, price: 1.0)
         Product.all.append(newProduct)
         
         // Add the new product to the CartItem array
