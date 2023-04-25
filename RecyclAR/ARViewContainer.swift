@@ -80,6 +80,14 @@ struct ARViewContainer: UIViewRepresentable {
 //        }
         
         
+        cokeAnchor.actions.cokeExplode.onAction = { entity in
+            self.displaySustainability(entity, text: "Tap the object for more sustainability information")
+        }
+        
+        pastaAnchor.actions.pastaExplode.onAction = { entity in
+            self.displaySustainability(entity, text: "Tap the object for more sustainability information")
+        }
+        
         cokeAnchor.actions.waitCoke.onAction = { entity in
             self.displaySustainability(entity, text: "")
         }
@@ -103,6 +111,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         pastaAnchor.actions.tapEcopasta.onAction = { entity in
             self.addPasta(entity, text: "")
+            print("tapped")
         }
         
         
@@ -169,7 +178,7 @@ struct ARViewContainer: UIViewRepresentable {
         // Do something with entity...
         
         // Add a new product to the array
-        let newProduct = Product(name: "Pasta", imageName: "pasta", sustainabilityPoints: 60, price: 1.0)
+        let newProduct = Product(name: "Pasta", imageName: "pasta", sustainabilityPoints: 60, price: 2.0)
         Product.all.append(newProduct)
         
         // Add the new product to the CartItem array

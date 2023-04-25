@@ -41,7 +41,7 @@
                                           "reversed" : false,
                                           "reverses" : false,
                                           "target" : [
-                                            "F4EA97BD-55AC-4716-A660-F49FD2B30357"
+                                            "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
                                           ]
                                         },
                                         "name" : {
@@ -71,7 +71,7 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "target" : [
-                                            "45836426-8E1C-4121-AD84-02F91078230B"
+                                            "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
                                           ],
                                           "userIdentifier" : "ExplodeCoke"
                                         },
@@ -159,7 +159,7 @@
                                           "respectPhysics" : false,
                                           "scale" : 0.071406528353691101,
                                           "target" : [
-                                            "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
+                                            "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                                           ]
                                         },
                                         "name" : {
@@ -199,7 +199,7 @@
                                           "reversed" : false,
                                           "reverses" : false,
                                           "target" : [
-                                            "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
+                                            "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                                           ]
                                         },
                                         "name" : {
@@ -273,173 +273,6 @@
                                     {
                                       "configurationBox" : {
                                         "configuration" : {
-                                          "angularCoefficient" : 1,
-                                          "animationStyle" : "basic",
-                                          "buildInAnimationType" : "none",
-                                          "distance" : 1,
-                                          "duration" : 0,
-                                          "fadeIn" : true,
-                                          "linearCoefficient" : 1,
-                                          "moveEase" : "easeInOut",
-                                          "respectPhysics" : false,
-                                          "target" : [
-
-                                          ]
-                                        },
-                                        "name" : {
-                                          "type" : "show"
-                                        }
-                                      },
-                                      "identifier" : "5CCD9524-90B9-479C-8B4A-43BE4B8BD06A",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                }
-                              ],
-                              "identifier" : "78E9C164-D7E4-4043-9FE7-1D9C92633748",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ],
-                      "color" : [
-                        0.49019607901573181,
-                        0.7450980544090271,
-                        0.94901961088180542,
-                        1
-                      ],
-                      "identifier" : "D571DFCB-6FFB-4834-B6F5-875AA571D8B2",
-                      "isEnabled" : true,
-                      "isLooping" : false,
-                      "isModal" : false,
-                      "name" : "AnimVid",
-                      "triggers" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurationBox" : {
-                                "configuration" : {
-                                  "userIdentifier" : "AnimVid"
-                                },
-                                "name" : "custom"
-                              },
-                              "identifier" : "BF456D50-832C-4D6E-AE87-1FDB229F7563",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ]
-                    }
-                  ],
-                  "__version" : 3
-                },
-                {
-                  "__content" : [
-                    {
-                      "accessibility" : {
-                        "__content" : [
-                          {
-                            "isEnabled" : false
-                          }
-                        ],
-                        "__version" : 1
-                      },
-                      "actionGroups" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurations" : [
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
-                                          "axis" : [
-                                            0,
-                                            1,
-                                            0
-                                          ],
-                                          "direction" : "clockwise",
-                                          "duration" : 22.070455551147461,
-                                          "iterations" : 16,
-                                          "target" : [
-                                            "F4EA97BD-55AC-4716-A660-F49FD2B30357"
-                                          ]
-                                        },
-                                        "name" : {
-                                          "type" : "spin"
-                                        }
-                                      },
-                                      "identifier" : "7E8E8024-A144-4386-AD31-AE1C8D3EDF5F",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                }
-                              ],
-                              "identifier" : "32DBCA2E-B0CB-4153-85F7-CE18B83CD561",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ],
-                      "color" : [
-                        0.30980393290519714,
-                        0.56470590829849243,
-                        0.99215686321258545,
-                        1
-                      ],
-                      "identifier" : "3D1BF62D-B850-4699-84C4-A32FD91C1C33",
-                      "isEnabled" : true,
-                      "isLooping" : false,
-                      "isModal" : false,
-                      "name" : "Test",
-                      "triggers" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurationBox" : {
-                                "configuration" : {
-                                  "userIdentifier" : "Test"
-                                },
-                                "name" : "custom"
-                              },
-                              "identifier" : "D05547BB-2BA0-4597-A3FB-AB6176C17F3A",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ]
-                    }
-                  ],
-                  "__version" : 3
-                },
-                {
-                  "__content" : [
-                    {
-                      "accessibility" : {
-                        "__content" : [
-                          {
-                            "isEnabled" : false
-                          }
-                        ],
-                        "__version" : 1
-                      },
-                      "actionGroups" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurations" : [
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
                                           "animationSpeed" : 1,
                                           "audioGain" : 1,
                                           "clipDuration" : 0,
@@ -450,7 +283,7 @@
                                           "reversed" : false,
                                           "reverses" : false,
                                           "target" : [
-                                            "F4EA97BD-55AC-4716-A660-F49FD2B30357"
+                                            "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
                                           ]
                                         },
                                         "name" : {
@@ -465,6 +298,37 @@
                                 }
                               ],
                               "identifier" : "90B5E1BC-6C4C-4707-A18B-723A87E45F4E",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        },
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
+                                          ],
+                                          "userIdentifier" : "Coke explode"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "4D6BC2B3-E59D-4B5B-A652-11DCB85E4DF6",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "EA1FF58C-F588-4BBE-ABA1-8EDA1F3E96E9",
                               "isEnabled" : true
                             }
                           ],
@@ -490,7 +354,7 @@
                                 "configuration" : {
                                   "distance" : 1,
                                   "target" : [
-                                    "F4EA97BD-55AC-4716-A660-F49FD2B30357"
+                                    "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
                                   ],
                                   "type" : 0
                                 },
@@ -538,7 +402,7 @@
                                           "reversed" : false,
                                           "reverses" : false,
                                           "target" : [
-                                            "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
+                                            "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                                           ]
                                         },
                                         "name" : {
@@ -578,7 +442,7 @@
                                 "configuration" : {
                                   "distance" : 1,
                                   "target" : [
-                                    "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
+                                    "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                                   ],
                                   "type" : 0
                                 },
@@ -626,7 +490,7 @@
                                           "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
+                                            "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                                           ]
                                         },
                                         "name" : {
@@ -696,7 +560,7 @@
                                           "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "F4EA97BD-55AC-4716-A660-F49FD2B30357"
+                                            "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
                                           ]
                                         },
                                         "name" : {
@@ -735,7 +599,7 @@
                                           "reversed" : false,
                                           "reverses" : false,
                                           "target" : [
-                                            "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
+                                            "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                                           ]
                                         },
                                         "name" : {
@@ -777,7 +641,7 @@
                                           "respectPhysics" : false,
                                           "scale" : 0.004999999888241291,
                                           "target" : [
-                                            "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
+                                            "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                                           ]
                                         },
                                         "name" : {
@@ -887,7 +751,7 @@
                               "configurationBox" : {
                                 "configuration" : {
                                   "target" : [
-                                    "F4EA97BD-55AC-4716-A660-F49FD2B30357"
+                                    "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
                                   ]
                                 },
                                 "name" : "tapTarget"
@@ -965,7 +829,7 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "target" : [
-
+                                            "45836426-8E1C-4121-AD84-02F91078230B"
                                           ],
                                           "userIdentifier" : "Tap ecocoke"
                                         },
@@ -1032,124 +896,10 @@
               "overrides" : {
                 "children" : {
                   "8E75029A-3015-4F42-9E4B-12D77CF48433" : null,
-                  "45BE28BD-6087-4467-9333-8E66EEB2E262" : {
-                    "overrides" : {
-                      "children" : {
-                        "USDScene" : {
-                          "overrides" : {
-                            "arguments" : [
-                              [
-                                "includeSceneScaling",
-                                {
-                                  "typeName" : "Bool",
-                                  "value" : false
-                                }
-                              ],
-                              [
-                                "subpath",
-                                {
-                                  "typeName" : "String",
-                                  "value" : ""
-                                }
-                              ],
-                              [
-                                "url",
-                                {
-                                  "typeName" : "String",
-                                  "value" : "model:14dc000a15dd060c596e40d0b65d61b7\/Coke%20can.usdz"
-                                }
-                              ],
-                              [
-                                "withDescendants",
-                                {
-                                  "typeName" : "Bool",
-                                  "value" : true
-                                }
-                              ]
-                            ],
-                            "factory" : {
-                              "identifier" : "com.apple.af.FileImportAssetFactory",
-                              "version" : "0.0"
-                            },
-                            "runtimeAttributes" : [
-                              [
-                                "RuntimeIdentifier",
-                                {
-                                  "typeName" : "UUID",
-                                  "value" : "81DB13F4-38EB-4D8E-ADF5-2B3FCA8D3932"
-                                }
-                              ]
-                            ]
-                          },
-                          "transform" : {
-                            "matrix" : [
-                              1,
-                              0,
-                              0,
-                              0,
-                              0,
-                              1,
-                              0,
-                              0,
-                              0,
-                              0,
-                              1,
-                              0,
-                              0,
-                              0,
-                              0,
-                              1
-                            ]
-                          }
-                        }
-                      },
-                      "factory" : {
-                        "identifier" : "com.apple.af.Group",
-                        "version" : "0.0"
-                      },
-                      "runtimeAttributes" : [
-                        [
-                          "RuntimeIdentifier",
-                          {
-                            "typeName" : "UUID",
-                            "value" : "F4EA97BD-55AC-4716-A660-F49FD2B30357"
-                          }
-                        ],
-                        [
-                          "entityName",
-                          {
-                            "typeName" : "String",
-                            "value" : "CokeExplode"
-                          }
-                        ]
-                      ]
-                    },
-                    "transform" : {
-                      "matrix" : [
-                        0.05000000074505806,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0.05000000074505806,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0.05000000074505806,
-                        0,
-                        0,
-                        -0.015599995851516724,
-                        0,
-                        1
-                      ]
-                    }
-                  },
+                  "45BE28BD-6087-4467-9333-8E66EEB2E262" : null,
                   "75469C1A-6263-4946-A8D8-62D26CAD9B93" : null,
                   "A3B30253-CA01-4C02-8FB2-5A2E36C5784C" : null,
-                  "AFBC726F-29B5-4F98-B91F-8BBA684F2497" : null,
-                  "B362BA74-2073-4DCA-9222-F2549C66AF2E" : null,
-                  "C010BBE1-2894-4D22-8650-657C1540FFD5" : {
+                  "A933461B-4FA7-4DE9-A194-2D0D6F13BCCC" : {
                     "overrides" : {
                       "children" : {
                         "USDScene" : {
@@ -1173,7 +923,7 @@
                                 "url",
                                 {
                                   "typeName" : "String",
-                                  "value" : "model:5433fb98d359ee1c99e43cbb45093a1c\/Cokecan_closeanim.usdz"
+                                  "value" : "model:50abc436dbfa55c9d537993a7a7094b6\/cokeClose.usdz"
                                 }
                               ],
                               [
@@ -1193,7 +943,7 @@
                                 "RuntimeIdentifier",
                                 {
                                   "typeName" : "UUID",
-                                  "value" : "FD4D5F06-FF1F-446F-9B2A-0CE9E54A5B82"
+                                  "value" : "4C0370AE-E8F9-4AA1-8DEF-D8AA2A067A44"
                                 }
                               ]
                             ]
@@ -1229,14 +979,7 @@
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "83DBFE87-604E-4F89-BAA3-D627EB39E35B"
-                          }
-                        ],
-                        [
-                          "entityName",
-                          {
-                            "typeName" : "String",
-                            "value" : "CokeClose"
+                            "value" : "40DE15D1-2769-4AC9-8D9F-3E57FEEC3F1C"
                           }
                         ]
                       ]
@@ -1256,15 +999,124 @@
                         0.05000000074505806,
                         0,
                         0,
-                        -0.015599995851516724,
+                        -0.015599999576807022,
                         0,
                         1
                       ]
                     }
                   },
+                  "AFBC726F-29B5-4F98-B91F-8BBA684F2497" : null,
+                  "B362BA74-2073-4DCA-9222-F2549C66AF2E" : null,
+                  "C010BBE1-2894-4D22-8650-657C1540FFD5" : null,
                   "CB3C69B5-5D35-4255-8547-8FF803D0268F" : null,
                   "Cube" : null,
                   "DAAE1816-6EF3-4C9E-84D7-9B440406E24D" : null,
+                  "E48BEE33-3433-4D55-BDB8-2A67E12D55B2" : {
+                    "overrides" : {
+                      "children" : {
+                        "USDScene" : {
+                          "overrides" : {
+                            "arguments" : [
+                              [
+                                "includeSceneScaling",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : false
+                                }
+                              ],
+                              [
+                                "subpath",
+                                {
+                                  "typeName" : "String",
+                                  "value" : ""
+                                }
+                              ],
+                              [
+                                "url",
+                                {
+                                  "typeName" : "String",
+                                  "value" : "model:a659c2763d4313a1a72fddcf46a930ac\/cokeOpen.usdz"
+                                }
+                              ],
+                              [
+                                "withDescendants",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : true
+                                }
+                              ]
+                            ],
+                            "factory" : {
+                              "identifier" : "com.apple.af.FileImportAssetFactory",
+                              "version" : "0.0"
+                            },
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "27521912-B1F5-4351-A76A-771648527C2E"
+                                }
+                              ]
+                            ]
+                          },
+                          "transform" : {
+                            "matrix" : [
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.af.Group",
+                        "version" : "0.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "9D3731DE-4D88-482C-85F6-5EA7B7DA5E7A"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        0.05000000074505806,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.05000000074505806,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.05000000074505806,
+                        0,
+                        0,
+                        -0.015599999576807022,
+                        0,
+                        1
+                      ]
+                    }
+                  },
                   "E9052CB9-FC62-4417-90ED-EFA7B9776F65" : {
                     "overrides" : {
                       "children" : {
@@ -1551,21 +1403,21 @@
               "title" : "Coke",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99716192483901978,
-                  7.0175602218114363e-08,
-                  -0.075287826359272003,
+                  0.99997866153717041,
+                  6.9953316028659174e-08,
+                  -0.0065421336330473423,
                   0,
-                  -0.028847360983490944,
-                  0.92368197441101074,
-                  -0.38207271695137024,
+                  -0.0031454304698854685,
+                  0.87683784961700439,
+                  -0.48077583312988281,
                   0,
-                  0.069541983306407928,
-                  0.38316014409065247,
-                  0.92106038331985474,
+                  0.0057363724336028099,
+                  0.48078614473342896,
+                  0.87681913375854492,
                   0,
-                  0.14540590345859528,
-                  0.42692828178405762,
-                  0.78367018699645996,
+                  0.11362186074256897,
+                  0.81909418106079102,
+                  1.0999071598052979,
                   1
                 ],
                 "sceneTransform" : [
@@ -1620,6 +1472,37 @@
                                     {
                                       "configurationBox" : {
                                         "configuration" : {
+                                          "target" : [
+
+                                          ],
+                                          "userIdentifier" : "ExplodeCoke"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "BF2D8AEC-2295-4BEA-9E18-29469E89B000",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "D39396E5-28FE-43B7-8F5E-3538CA613A26",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        },
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
                                           "animationSpeed" : 1,
                                           "audioGain" : 1,
                                           "clipDuration" : 0,
@@ -1645,37 +1528,6 @@
                                 }
                               ],
                               "identifier" : "BF4FA7E3-4B6F-46B5-A7B9-D4C6F2BFFC6C",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        },
-                        {
-                          "__content" : [
-                            {
-                              "configurations" : [
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
-                                          "target" : [
-
-                                          ],
-                                          "userIdentifier" : "ExplodeCoke"
-                                        },
-                                        "name" : {
-                                          "type" : "custom"
-                                        }
-                                      },
-                                      "identifier" : "BF2D8AEC-2295-4BEA-9E18-29469E89B000",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                }
-                              ],
-                              "identifier" : "D39396E5-28FE-43B7-8F5E-3538CA613A26",
                               "isEnabled" : true
                             }
                           ],
@@ -2020,6 +1872,37 @@
                         "__version" : 1
                       },
                       "actionGroups" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+
+                                          ],
+                                          "userIdentifier" : "Pasta explode"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "CB812177-C34B-4A76-9710-F65161B54114",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "F8531DA3-F84C-413F-AA5A-DA9F8C37DA6A",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        },
                         {
                           "__content" : [
                             {
@@ -2555,7 +2438,7 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "target" : [
-
+                                            "E2911DE1-1BA4-4395-9D55-17BDD9CF6FE3"
                                           ],
                                           "userIdentifier" : "Tap ecopasta"
                                         },
@@ -2727,8 +2610,8 @@
                         0,
                         5.1259984701346184e-08,
                         0,
-                        0.0057000000961124897,
-                        -0.015599946491420269,
+                        0.0067643122747540474,
+                        -0.028232799842953682,
                         -0.11160373687744141,
                         1
                       ]
@@ -2841,7 +2724,7 @@
                         3.5257994568382856e-06,
                         0,
                         0.0062000001780688763,
-                        -0.015599999576807022,
+                        -0.028376173228025436,
                         -0.79734033346176147,
                         1
                       ]
@@ -2957,8 +2840,8 @@
                         0,
                         2.145766586636455e-08,
                         0,
-                        0,
-                        -0.015599999576807022,
+                        -5.7257711887359619e-06,
+                        -0.028232801705598831,
                         -0.0091300178319215775,
                         1
                       ]
@@ -3121,7 +3004,7 @@
                         0,
                         0.21630342304706573,
                         0,
-                        0.013510078191757202,
+                        0,
                         0.24214379489421844,
                         0,
                         1
@@ -3156,9 +3039,9 @@
                   0.38316014409065247,
                   0.92063826322555542,
                   0,
-                  0.13171130418777466,
-                  0.41330751776695251,
-                  0.56989789009094238,
+                  0.065284393727779388,
+                  0.29830285906791687,
+                  0.49367055296897888,
                   1
                 ],
                 "sceneTransform" : [
