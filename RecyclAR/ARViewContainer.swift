@@ -26,7 +26,8 @@ struct ARViewContainer: UIViewRepresentable {
 
     
     
-    let cokeAnchor = try! CokeCanGVU.loadPasta()
+    let cokeAnchor = try! CokeCanGVU.loadCoke()
+    let pastaAnchor = try! CokeCanGVU.loadPasta()
     //let pastaAnchor = try! CokeCanGVU.loadPasta()
     
     
@@ -56,14 +57,31 @@ struct ARViewContainer: UIViewRepresentable {
         let cokeEco = cokeAnchor.findEntity(named: "CokeEco")
         let tag = cokeAnchor.findEntity(named: "Tag")
         
+        let pastaExplode = pastaAnchor.findEntity(named: "PastaExplode")
+        let pastaClose = pastaAnchor.findEntity(named: "PastaClose")
+        let pastaEco = pastaAnchor.findEntity(named: "PastaEco")
+        let pastaTag = pastaAnchor.findEntity(named: "Tag")
+        
         //cokeNormal?.isEnabled = false
         cokeExplode?.isEnabled = false
         cokeClose?.isEnabled = false
         cokeEco?.isEnabled = false
         tag?.isEnabled = false
         
+        pastaExplode?.isEnabled = false
+        pastaClose?.isEnabled = false
+        pastaEco?.isEnabled = false
+        pastaTag?.isEnabled = false
         
-        cokeAnchor.actions.wait.onAction = { entity in
+        
+        
+        
+//        cokeAnchor.actions.wait.onAction = { entity in
+//            self.displaySustainability(entity, text: "")
+//        }
+        
+        
+        pastaAnchor.actions.wait.onAction = { entity in
             self.displaySustainability(entity, text: "")
         }
         
@@ -71,8 +89,17 @@ struct ARViewContainer: UIViewRepresentable {
             self.displaySustainability(entity, text: "The product has a sustainability score of 80 points.\nTap the product if you want to add it to your cart.")
         }
         
+        pastaAnchor.actions.showPasta.onAction = { entity in
+            self.displaySustainability(entity, text: "The product has a sustainability score of 60 points.\nTap the product if you want to add it to your cart.")
+        }
+        
         cokeAnchor.actions.tapEco.onAction = { entity in
             self.addCart(entity, text: "")
+        }
+        
+        
+        pastaAnchor.actions.tapEco.onAction = { entity in
+            self.addPasta(entity, text: "")
         }
         
         
@@ -81,6 +108,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         arView.addCoaching()
         arView.scene.anchors.append(cokeAnchor)
+        arView.scene.anchors.append(pastaAnchor)
         
         
         // Add object detection for `CokeCanExplode`
@@ -130,7 +158,7 @@ struct ARViewContainer: UIViewRepresentable {
         // Do something with entity...
     }
     
-    func addCart(_ entity: Entity?, text: String) {
+    func addPasta(_ entity: Entity?, text: String) {
         print("Added to Cart")
         customText = text
             
@@ -138,7 +166,23 @@ struct ARViewContainer: UIViewRepresentable {
         // Do something with entity...
         
         // Add a new product to the array
-        let newProduct = Product(name: "Pasta", imageName: "pasta", sustainabilityPoints: 50, price: 1.0)
+        let newProduct = Product(name: "Pasta", imageName: "pasta", sustainabilityPoints: 60, price: 1.0)
+        Product.all.append(newProduct)
+        
+        // Add the new product to the CartItem array
+        let newCartItem = CartItem(product: newProduct, count: 1)
+        CartItem.all.append(newCartItem)
+    }
+    
+    func addCoke(_ entity: Entity?, text: String) {
+        print("Added to Cart")
+        customText = text
+            
+        guard let entity = entity else { return }
+        // Do something with entity...
+        
+        // Add a new product to the array
+        let newProduct = Product(name: "Coke", imageName: "coke", sustainabilityPoints: 80, price: 1.0)
         Product.all.append(newProduct)
         
         // Add the new product to the CartItem array
@@ -153,6 +197,10 @@ struct ARViewContainer: UIViewRepresentable {
             var cokeNormal: Entity?
             var cokeExplode: Entity?
             var cokeClose: Entity?
+        
+            var pastaNormal: Entity?
+            var pastaExplode: Entity?
+            var pastaClose: Entity?
 
             init(_ parent: ARViewContainer) {
                 self.parent = parent
@@ -170,14 +218,18 @@ struct ARViewContainer: UIViewRepresentable {
                     
                     // Change the tap view state to `.scanned` if it is currently in the `.identifying` state.
                     if let objectAnchor = anchor as? ARObjectAnchor {
-                        print("Detected object with name: \(objectAnchor.referenceObject.name ?? "")")
+                        //print("Detected object with name: \(objectAnchor.referenceObject.name ?? "")")
                                                 
                         cokeExplode = self.parent.cokeAnchor.findEntity(named: "CokeExplode")
+                        pastaExplode = self.parent.pastaAnchor.findEntity(named: "PastaExplode")
                         
 
                         if parent.state == .identifying || parent.state == .tapToPosition {
                             
                             self.cokeExplode?.isEnabled = true
+                            self.parent.state = .objectFound
+                            
+                            self.pastaExplode?.isEnabled = true
                             self.parent.state = .objectFound
                             
                             parent.tapHostingControllerHolder.tapHostingController?.view.isUserInteractionEnabled = false

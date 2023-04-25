@@ -63,5 +63,105 @@
     "libraryIdentifier" : "70f7a08e88e4ca261238c2036d7ab469",
     "format" : "arObject",
     "displayName" : "pastaBox.arobject"
+  },
+  {
+    "libraryIdentifier" : "dced7cdaa3288a9aeb8cf9e2482a3a8b",
+    "format" : "model",
+    "displayName" : "pasta.usdz"
+  },
+  {
+    "libraryIdentifier" : "87771be95b442380e5a811445836bf65",
+    "format" : "model",
+    "displayName" : "pastaboxopen.usdz"
+  },
+  {
+    "libraryIdentifier" : "f76f6f49a8780beb0dea3c74a7c228b6",
+    "format" : "model",
+    "displayName" : "111.usdz"
+  },
+  {
+    "libraryIdentifier" : "1d75cdcf98cb3c22e9e879fad78f88b5",
+    "format" : "model",
+    "displayName" : "test22.usdz"
+  },
+  {
+    "libraryIdentifier" : "9b80d331f458254ff0b3185c4c95034e",
+    "format" : "model",
+    "displayName" : "pasta box open2.usdz"
+  },
+  {
+    "libraryIdentifier" : "c140ba35844da1f5439e1204ff44f9cb",
+    "format" : "model",
+    "displayName" : "pasta box open1.usdz"
+  },
+  {
+    "libraryIdentifier" : "346379dbcbce7798f9368b8f7e80df88",
+    "format" : "model",
+    "displayName" : "cube03.usdz"
+  },
+  {
+    "libraryIdentifier" : "5e07e4d74fb78b4762f19bb0dd2f8299",
+    "format" : "model",
+    "displayName" : "actual box.usdz"
+  },
+  {
+    "libraryIdentifier" : "a2f703ecdf34df2dc0c031c0bfe98bf5",
+    "format" : "model",
+    "displayName" : "just front.usdz"
+  },
+  {
+    "libraryIdentifier" : "0c1b34601a4b7ab91cec63af4b4dc616",
+    "format" : "model",
+    "displayName" : "transparent sheet.usdz"
+  },
+  {
+    "libraryIdentifier" : "256b86fd38a9f918c89b9ac6d4ece05f",
+    "format" : "model",
+    "displayName" : "ankm.usdz"
+  },
+  {
+    "libraryIdentifier" : "e321446525f4cae89b92b9fd1e3c08fc",
+    "format" : "model",
+    "displayName" : "transparent sheet2.usdz"
+  },
+  {
+    "libraryIdentifier" : "9a8c00505b627d5c9fbbe94b594454d5",
+    "format" : "model",
+    "displayName" : "pasta box open2.usdz"
+  },
+  {
+    "libraryIdentifier" : "17266866e820bcd88ff87b7df6fc3647",
+    "format" : "model",
+    "displayName" : "pasta box open with pasta.usdz"
+  },
+  {
+    "libraryIdentifier" : "f8e118873cf82fbabf71f906de443fa5",
+    "format" : "model",
+    "displayName" : "pasta box close.usdz"
+  },
+  {
+    "libraryIdentifier" : "8377b85279a30907fab6f4e90e5e4851",
+    "format" : "model",
+    "displayName" : "pasta box open3.usdz"
+  },
+  {
+    "libraryIdentifier" : "bd0a25688e37f217fa25c03116036b95",
+    "format" : "model",
+    "displayName" : "pasta eco box.usdz"
+  },
+  {
+    "libraryIdentifier" : "4b48bac38be2f25347f733a52702b660",
+    "format" : "model",
+    "displayName" : "pasta box open3.usdz"
+  },
+  {
+    "libraryIdentifier" : "3ff9119e535d49668fb105380c4a64b9",
+    "format" : "model",
+    "displayName" : "pasta box close.usdz"
+  },
+  {
+    "libraryIdentifier" : "25b5ed2a0b3f1e751bb3fe7af33c4a6c",
+    "format" : "arObject",
+    "displayName" : "pasta2.arobject"
   }
 ]
